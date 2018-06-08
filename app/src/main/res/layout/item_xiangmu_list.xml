@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="40px">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_name"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:layout_marginRight="20px"
+                android:src="@drawable/wuye"/>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="新月茶楼"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥ 00"
+            android:layout_alignParentRight="true"
+            android:paddingRight="15dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/img_address"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_marginRight="20px"
+            android:src="@drawable/address"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="北京市海淀区永和路"/>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+       android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#cbcbcb"/>
+
+    <TextView
+        android:id="@+id/tv_gcid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中海装饰施工有限公司"/>
+
+</LinearLayout>

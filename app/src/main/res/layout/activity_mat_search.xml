@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.MatSearchActivity">
+
+    <include layout="@layout/include_header_search_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搜索热词"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <GridView
+            android:id="@+id/gv_hot_word"
+            android:layout_width="match_parent"
+            android:layout_height="140px"
+            android:layout_marginTop="24px"
+            android:horizontalSpacing="20px"
+            android:numColumns="4"
+            android:verticalSpacing="20px"></GridView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24px">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索记录"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/tv_del_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_search_record"
+            android:layout_width="match_parent"
+            android:layout_height="140px"
+            android:layout_marginTop="24px"
+            android:horizontalSpacing="20px"
+            android:numColumns="4"
+            android:verticalSpacing="20px"></GridView>
+
+    </LinearLayout>
+
+</LinearLayout>

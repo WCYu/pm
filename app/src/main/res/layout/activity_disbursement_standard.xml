@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.DisbursementStandardActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24px"
+                android:background="@color/colorWhite"
+                android:orientation="vertical"
+                android:padding="24px">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="10px"
+                        android:layout_height="30px"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8px"
+                        android:text="@string/disbursement_standard_way"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_way"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="24px"
+                android:orientation="vertical"
+                android:background="@color/colorWhite">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="10px"
+                        android:layout_height="30px"
+                        android:background="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8px"
+                        android:text="@string/disbursement_explain"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_condition_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_condition_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+                <TextView
+                    android:id="@+id/tv_disbursement_standard_condition_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24px"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_m" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lin_mat_standard"
+        android:layout_width="match_parent"
+        android:layout_height="210px"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70px"
+            android:layout_marginTop="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_disbursement_standard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:text="@string/agree"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_disbursement_standard_punish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/punish"
+                        android:textColor="@color/colorBlueLight"
+                        android:textSize="@dimen/text_size_m" />
+
+                    <TextView
+                        android:id="@+id/tv_disbursement_standard_manage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/manage"
+                        android:textColor="@color/colorBlueLight"
+                        android:textSize="@dimen/text_size_m" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_disbursement_standard_pm_punish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pm_punish"
+                        android:textColor="@color/colorBlueLight"
+                        android:textSize="@dimen/text_size_m" />
+
+                    <TextView
+                        android:id="@+id/tv_disbursement_standard_pm_manage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pm_manage"
+                        android:textColor="@color/colorBlueLight"
+                        android:textSize="@dimen/text_size_m" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px">
+
+            <Button
+                android:id="@+id/btn_disbursement_standard_agree"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="@drawable/selector_btn_sub"
+                android:enabled="false"
+                android:text="@string/agree"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_l"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

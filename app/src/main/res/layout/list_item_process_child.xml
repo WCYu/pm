@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="20px">
+
+        <TextView
+            android:id="@+id/tv_list_item_process_child_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="施工安全准备"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_list_item_process_child_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="未完成"
+            android:layout_marginRight="32px"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorRedLight"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_process_child_count"
+            android:layout_width="24px"
+            android:layout_height="24px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10px"
+            android:layout_toLeftOf="@+id/tv_list_item_process_child_state"
+            android:layout_toStartOf="@+id/tv_list_item_process_child_state"
+            android:gravity="center"
+            android:background="@drawable/shape_state_red"
+            android:text="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+</LinearLayout>

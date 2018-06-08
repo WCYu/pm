@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/include_header_layout">
+    </include>
+    <EditText
+        android:id="@+id/refusal_message"
+        android:layout_width="match_parent"
+        android:layout_margin="20px"
+        android:layout_height="400px"
+        android:hint="请输入拒单/退单具体原因"
+        android:paddingTop="15px"
+        android:paddingLeft="15px"
+        android:background="@drawable/miaobian"
+        android:gravity="top"/>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></RelativeLayout>
+    <Button
+
+        android:id="@+id/btn_quit"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:layout_gravity="bottom"
+        android:background="@drawable/selector_btn_sub"
+        android:text="提交"
+        android:textColor="@color/colorWhite"
+        android:textSize="34px" />
+</LinearLayout>

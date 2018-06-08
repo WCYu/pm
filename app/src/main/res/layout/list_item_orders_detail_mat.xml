@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_detail_mat_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1."
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_detail_mat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/tv_list_item_orders_detail_mat_count"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_detail_mat_spec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/tv_list_item_orders_detail_mat_name"
+            android:singleLine="true"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_detail_mat_brand"
+            android:layout_width="240px"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_list_item_orders_detail_mat_name"
+            android:layout_below="@+id/tv_list_item_orders_detail_mat_name"
+            android:layout_marginTop="16px"
+            android:singleLine="true"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_detail_mat_count_num"
+            android:layout_width="100px"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_list_item_orders_detail_mat_name"
+            android:layout_marginTop="16px"
+            android:layout_toRightOf="@+id/tv_list_item_orders_detail_mat_brand"
+            android:singleLine="true"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_detail_mat_price"
+            android:layout_width="200px"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_list_item_orders_detail_mat_name"
+            android:layout_marginTop="16px"
+            android:gravity="right"
+            android:singleLine="true"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+</LinearLayout>

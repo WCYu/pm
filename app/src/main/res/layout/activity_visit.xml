@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.VisitActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/tv_visit_pro_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80px"
+            android:layout_marginRight="240px"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:layout_width="34px"
+            android:layout_height="34px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:src="@mipmap/project_title_icon" />
+
+        <ImageView
+            android:layout_width="216px"
+            android:layout_height="92px"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/visit_bg_icon" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_visit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"></ListView>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorWhite"
+      android:orientation="horizontal"
+      android:padding="5px">
+
+      <EditText
+          android:id="@+id/et_visit_content"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:textColor="@color/colorBlackLight"
+          android:textSize="26px" />
+
+      <TextView
+          android:id="@+id/tv_old_password_line"
+          android:layout_width="wrap_content"
+          android:layout_height="1px"
+          android:layout_alignParentBottom="true"
+          android:background="@drawable/selector_input_line"
+          android:enabled="false" />
+
+      <Button
+          android:id="@+id/btn_visit_send"
+          android:layout_width="100px"
+          android:layout_height="60px"
+          android:layout_marginLeft="20px"
+          android:background="@drawable/selector_btn_sub"
+          android:text="发送"
+
+          android:textColor="@color/colorWhite"
+          android:textSize="26px" />
+
+  </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+</LinearLayout>

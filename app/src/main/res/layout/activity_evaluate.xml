@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.EvaluateActivity">
+
+    <include layout="@layout/include_header_red_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:id="@+id/rl_evaluate_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="138px"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/evaluate_bg_icon" />
+
+            <ImageView
+                android:id="@+id/iv_evaluate_call"
+                android:layout_width="132px"
+                android:layout_height="40px"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="40px"
+                android:src="@mipmap/evaluate_call_icon"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_header"
+                android:layout_width="160px"
+                android:layout_height="160px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="60px"
+                android:background="@mipmap/evaluate_header_bg_icon">
+
+                <com.rxjy.pm.widget.CircleImageView
+                    android:id="@+id/civ_mat_merchant"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="24px"
+                    android:src="@mipmap/evaluate_header_icon" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_evaluate_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20px"
+                android:text="文小续"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_evaluate_star"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_evaluate_info"
+            android:layout_marginLeft="24px"
+            android:layout_marginRight="24px"
+            android:layout_marginTop="20px">
+
+            <ImageView
+                android:id="@+id/iv_evaluate_icon"
+                android:layout_width="10px"
+                android:layout_height="30px"
+                android:src="@mipmap/status_icon" />
+
+            <TextView
+                android:id="@+id/tv_evaluate_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:layout_toRightOf="@+id/iv_evaluate_icon"
+                android:text="评价"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <ImageView
+                android:id="@+id/iv_star_one"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:layout_alignLeft="@+id/tv_evaluate_info"
+                android:layout_below="@+id/tv_evaluate_info"
+                android:layout_marginTop="20px"
+                android:src="@mipmap/star_normal_icon" />
+
+            <ImageView
+                android:id="@+id/iv_star_two"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:layout_alignBottom="@+id/iv_star_one"
+                android:layout_marginLeft="10px"
+                android:layout_toRightOf="@+id/iv_star_one"
+                android:src="@mipmap/star_normal_icon" />
+
+            <ImageView
+                android:id="@+id/iv_star_three"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:layout_alignBottom="@+id/iv_star_two"
+                android:layout_marginLeft="10px"
+                android:layout_toRightOf="@+id/iv_star_two"
+                android:src="@mipmap/star_normal_icon" />
+
+            <ImageView
+                android:id="@+id/iv_star_four"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:layout_alignBottom="@+id/iv_star_three"
+                android:layout_marginLeft="10px"
+                android:layout_toRightOf="@+id/iv_star_three"
+                android:src="@mipmap/star_normal_icon" />
+
+            <ImageView
+                android:id="@+id/iv_star_five"
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:layout_alignBottom="@+id/iv_star_four"
+                android:layout_marginLeft="10px"
+                android:layout_toRightOf="@+id/iv_star_four"
+                android:src="@mipmap/star_normal_icon" />
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_evaluate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_evaluate_star"
+            android:layout_marginLeft="48px"
+            android:layout_marginRight="144px"
+            android:layout_marginTop="20px"
+            android:horizontalSpacing="10px"
+            android:numColumns="3"
+            android:verticalSpacing="10px"></GridView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="110px"
+            android:layout_below="@+id/gv_evaluate"
+            android:layout_marginBottom="20px"
+            android:layout_marginLeft="48px"
+            android:layout_marginRight="48px"
+            android:layout_marginTop="20px"
+            android:background="@drawable/shape_circular_black"
+            android:padding="10px">
+
+            <EditText
+                android:id="@+id/et_evaluate_remark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="备注：请填写对材料的评价"
+                android:maxLength="70"
+                android:textColor="@color/colorGrayDark"
+                android:textColorHint="@color/colorGray"
+                android:textSize="@dimen/text_size_s" />
+
+            <TextView
+                android:id="@+id/tv_evaluate_remark_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text_size_s" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_evaluate_sub"
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/selector_btn_sub_full"
+            android:text="@string/sub"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+    </RelativeLayout>
+
+</LinearLayout>

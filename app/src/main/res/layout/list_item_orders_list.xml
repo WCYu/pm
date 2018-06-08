@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="126px"
+        android:background="@mipmap/orders_list_bg_icon">
+
+        <com.rxjy.pm.widget.CircleImageView
+            android:id="@+id/iv_list_item_orders_list_header"
+            android:layout_width="78px"
+            android:layout_height="78px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_list_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_list_item_orders_list_header"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_list_item_orders_list_header"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_orders_list_call"
+            android:layout_width="194px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_list_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_list_item_orders_list_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="244px"
+            android:textColor="@color/colorOrange"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_list_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_list_item_orders_list_header"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_list_item_orders_list_header"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_orders_list_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_list_item_orders_list_header"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="244px"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+</LinearLayout>

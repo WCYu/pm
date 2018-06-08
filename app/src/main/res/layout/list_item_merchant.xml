@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <ImageView
+            android:id="@+id/iv_merchant_radio"
+            android:layout_width="24px"
+            android:layout_height="24px"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/radio_checked_icon" />
+
+        <TextView
+            android:id="@+id/tv_merchant_mat_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/iv_merchant_radio"
+            android:text="¥8.00"
+            android:textColor="@color/colorRedLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_merchant_call"
+            android:layout_width="32px"
+            android:layout_height="36px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/selector_merchant_call" />
+
+        <ImageView
+            android:id="@+id/iv_star_five"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@+id/iv_merchant_call"
+            android:src="@mipmap/star_normal_icon" />
+
+        <ImageView
+            android:id="@+id/iv_star_four"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6px"
+            android:layout_toLeftOf="@+id/iv_star_five"
+            android:src="@mipmap/star_normal_icon" />
+
+
+        <ImageView
+            android:id="@+id/iv_star_three"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6px"
+            android:layout_toLeftOf="@+id/iv_star_four"
+            android:src="@mipmap/star_normal_icon" />
+
+        <ImageView
+            android:id="@+id/iv_star_two"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6px"
+            android:layout_toLeftOf="@+id/iv_star_three"
+            android:src="@mipmap/star_normal_icon" />
+
+        <ImageView
+            android:id="@+id/iv_star_one"
+            android:layout_width="28px"
+            android:layout_height="28px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6px"
+            android:layout_toLeftOf="@+id/iv_star_two"
+            android:src="@mipmap/star_normal_icon" />
+
+        <TextView
+            android:id="@+id/tv_merchant_work_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@+id/iv_star_one"
+            android:background="@color/colorBG"
+            android:padding="4px"
+            android:text="新人"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_merchant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10px"
+            android:layout_toLeftOf="@+id/tv_merchant_work_year"
+            android:text="王军"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+    </RelativeLayout>
+
+</LinearLayout>

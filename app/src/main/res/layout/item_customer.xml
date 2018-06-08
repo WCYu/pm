@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px"
+        android:background="@color/colorWhite">
+
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+            android:paddingLeft="15px"
+            android:paddingRight="15px"
+            android:paddingTop="5px"
+            android:paddingBottom="5px"
+            android:textSize="@dimen/text_size_s"
+            android:text="自带" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_tip"
+            android:layout_toLeftOf="@+id/tv_time"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:text=""
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l"/>
+
+        <TextView
+            android:id="@+id/tv_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:text="未知"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_l"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/tv_type"
+            android:layout_marginRight="20px"
+            android:text="2018.01.01"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_l"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

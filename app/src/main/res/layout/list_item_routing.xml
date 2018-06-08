@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <ImageView
+            android:id="@+id/iv_list_item_routing_icon"
+            android:layout_width="30px"
+            android:layout_height="28px"
+            android:src="@mipmap/routing_pro_icon" />
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_count"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:background="@drawable/shape_state_red"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_m"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/iv_list_item_routing_icon"
+            android:text="自检"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_iteM_routing_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+
+            android:textColor="@color/colorGreen"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_list_item_routing_type"
+            android:layout_below="@+id/tv_list_item_routing_type"
+            android:layout_marginTop="10px"
+            android:text="2012"
+            android:textColor="@color/colorBlueLight"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_routing_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_list_item_routing_type"
+            android:layout_marginTop="10px"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s"
+
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

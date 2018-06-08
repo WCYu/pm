@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.PunishDetailActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24px"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24px">
+
+            <ImageView
+                android:id="@+id/iv_punish_detail_state"
+                android:layout_width="10px"
+                android:layout_height="30px"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/status_icon" />
+
+            <TextView
+                android:id="@+id/tv_punish_detail_pro_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10px"
+                android:layout_toLeftOf="@+id/tv_punish_detail_price"
+                android:layout_toRightOf="@+id/iv_punish_detail_state"
+                android:singleLine="true"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/tv_punish_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/text_size_l" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_punish_detail_watermark"
+            android:layout_width="112px"
+            android:layout_height="76px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="80px"
+            android:src="@mipmap/watermark_award_icon" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_punish_detail_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_punish_detail_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_punish_detail_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10px"
+            android:gravity="right"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_s" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="20px"
+            android:background="@color/colorLine" />
+
+        <GridView
+            android:id="@+id/gv_punish_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24px"
+            android:horizontalSpacing="10px"
+            android:numColumns="3"
+            android:verticalSpacing="10px"></GridView>
+
+    </LinearLayout>
+
+</LinearLayout>

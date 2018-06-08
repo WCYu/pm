@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+   <include layout="@layout/include_header_layout"></include>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line1"></View>
+ <ScrollView
+
+     android:layout_width="match_parent"
+     android:layout_height="400px"
+     >
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+    <com.rxjy.pm.widget.CustomeGridView
+        android:layout_marginBottom="20px"
+        android:id="@+id/gw"
+        android:numColumns="3"
+        android:horizontalSpacing="15px"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="14px"
+        android:layout_marginTop="14px"
+        android:layout_height="400px" />
+     </LinearLayout>
+ </ScrollView>
+    <EditText
+        android:id="@+id/reason_"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:hint="请输入原因"
+        android:paddingTop="14px"
+        android:paddingLeft="24px"
+        android:textSize="26px"
+        android:background="@drawable/miaobian"
+        android:gravity="top"/>
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRed"
+            android:text="提交"
+            android:layout_gravity="bottom"
+            android:layout_alignParentBottom="true"
+            android:textSize="28px"/>
+    </RelativeLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

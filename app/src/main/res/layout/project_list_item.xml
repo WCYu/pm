@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <com.zhy.autolayout.AutoLinearLayout
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="30px"
+      android:paddingBottom="24px"
+      android:paddingLeft="30px"
+      android:orientation="vertical"
+      >
+      <com.zhy.autolayout.AutoLinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+      <TextView
+          android:id="@+id/engineeringtype"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="@color/colorGreen"
+          android:textSize="28px"/>
+          <TextView
+              android:id="@+id/Engineering_brief"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+
+              android:textSize="28px"
+              android:layout_marginLeft="15px"/>
+      </com.zhy.autolayout.AutoLinearLayout>
+      <com.zhy.autolayout.AutoLinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="3"
+          android:orientation="horizontal">
+      <com.zhy.autolayout.AutoLinearLayout
+          android:layout_marginTop="30px"
+          android:layout_width="0px"
+          android:layout_weight="1"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:text="单位 : "
+              android:textColor="@color/colortypeface"
+              android:textSize="26px" />
+          <TextView
+              android:id="@+id/Unit_quantity"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+
+              android:textSize="26px"
+
+              android:textColor="@color/colortypeface"/>
+      </com.zhy.autolayout.AutoLinearLayout>
+
+
+          <com.zhy.autolayout.AutoLinearLayout
+              android:layout_marginTop="30px"
+              android:layout_width="0px"
+              android:layout_weight="1"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="match_parent"
+                  android:text="单价 : "
+                  android:textColor="@color/colortypeface"
+                  android:textSize="26px" />
+              <TextView
+                 android:id="@+id/UnitPrice"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+
+                  android:textSize="26px"
+
+                  android:textColor="@color/colortypeface"/>
+          </com.zhy.autolayout.AutoLinearLayout>
+          <com.zhy.autolayout.AutoLinearLayout
+              android:layout_weight="1"
+              android:layout_marginTop="30px"
+              android:layout_width="0px"
+              android:layout_height="wrap_content"
+
+              android:orientation="horizontal">
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="工程量 : "
+                  android:textSize="26px"
+                  android:textColor="@color/colortypeface"/>
+              <TextView
+                  android:id="@+id/quantity_Engineering"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textSize="26px"
+                  android:textColor="@color/colortypeface"/>
+          </com.zhy.autolayout.AutoLinearLayout>
+      </com.zhy.autolayout.AutoLinearLayout>
+  </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

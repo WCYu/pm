@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_header_layout" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100px"
+            android:layout_marginTop="20px"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:text="客户姓名"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/tv_name"
+                android:layout_toRightOf="@+id/tv_name"
+                android:background="@null"
+                android:ems="10"
+                android:hint="请输入客户姓名"
+                android:inputType="textPersonName"
+                android:text=""
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dip"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100px"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:text="手机号码"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l"
+          />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_toRightOf="@+id/tv_phone"
+                android:background="@null"
+                android:ems="10"
+                android:hint="请输入手机号码"
+                android:inputType="number"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l"
+                android:maxLength="11"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dip"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100px"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/tv_companyname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:text="项目名称"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <EditText
+                android:id="@+id/et_companyname"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_toRightOf="@+id/tv_companyname"
+                android:background="@null"
+                android:ems="10"
+                android:hint="请输入公司名称"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dip"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="100px"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/tv_mianji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:text="面        积"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <EditText
+                android:id="@+id/et_mianji"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_toRightOf="@+id/tv_mianji"
+                android:background="@null"
+                android:ems="10"
+                android:hint="请输入面积"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dip"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:id="@+id/rl_type"
+            android:layout_width="fill_parent"
+            android:layout_height="100px"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20px"
+                android:text="客户类型"
+                android:textColor="@color/colorBlackLight"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:id="@+id/et_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/tv_type"
+                android:text="请选择客户类型"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dip"
+            android:background="@color/line_color" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/pick_rlv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/iv_selector_light">
+
+        <com.rxjy.pm.widget.PickerScrollView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            />
+        <TextView
+            android:id="@+id/pick_cancle"
+            android:text="取消"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/bar_grey"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/pick_selected"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:text="确认"
+            android:textSize="16dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/bar_grey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_submit"
+        android:layout_width="fill_parent"
+        android:layout_height="88px"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="提 交"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_l" />
+
+</LinearLayout>

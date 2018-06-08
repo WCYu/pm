@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+  <include layout="@layout/include_header_layout"></include>
+    <ListView
+        android:id="@+id/engineeringList"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+  <ImageView
+      android:id="@+id/beijing"
+      android:layout_weight="1"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:src="@mipmap/beijing"
+      android:visibility="gone"
+      android:scaleType="fitXY"/>
+  <LinearLayout
+      android:id="@+id/total_Amount"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+  <View
+      android:visibility="gone"
+      android:layout_width="match_parent"
+      android:layout_height="2px"
+      android:background="@color/colorRed"></View>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorThe_dark"
+      android:visibility="gone">
+
+    <TextView
+        android:id="@+id/cost_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="36px"
+        android:text="成本总金额: ￥"
+        android:gravity="center"
+        android:textColor="@color/colorRed"
+        android:layout_centerInParent="true"
+        android:padding="20px"
+        android:visibility="gone"
+        />
+  </RelativeLayout>
+  </LinearLayout>
+</LinearLayout>

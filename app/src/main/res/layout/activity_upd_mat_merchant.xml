@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.UpdMatMerchantActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+    <ListView
+        android:id="@+id/lv_upd_mat_merchant"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></ListView>
+
+    <Button
+        android:id="@+id/btn_upd_mat_merchant_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@color/colorPrimary"
+        android:text="@string/confirm"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_l" />
+
+</LinearLayout>

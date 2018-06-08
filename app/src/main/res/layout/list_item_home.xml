@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78px"
+        android:paddingLeft="20px"
+        android:paddingRight="20px">
+
+        <TextView
+            android:id="@+id/tv_list_item_project_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/tv_list_item_project_time"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="南苑文化集团有限公司办公室"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_list_item_project_state"
+            android:layout_width="84px"
+            android:layout_height="40px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/shape_project_state_start"
+            android:gravity="center"
+            android:text="施工"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_project_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20px"
+            android:layout_toLeftOf="@+id/tv_list_item_project_state"
+            android:layout_toStartOf="@+id/tv_list_item_project_state"
+            android:drawableLeft="@mipmap/clock"
+            android:drawablePadding="10px"
+            android:text="18.18—12.12"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="20px"
+        android:background="@color/colorLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130px"
+        android:orientation="horizontal"
+        android:paddingRight="20px">
+
+        <RelativeLayout
+            android:id="@+id/rl_list_item_prepare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_list_item_prepare"
+                android:layout_width="48px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="28px"
+                android:src="@mipmap/prepare" />
+
+            <TextView
+                android:id="@+id/tv_list_item_prepare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_list_item_prepare"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18px"
+                android:text="@string/prepare"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+
+            <ImageView
+                android:id="@+id/iv_list_item_prepare_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_list_item_prepare"
+                android:layout_toEndOf="@+id/tv_list_item_prepare"
+                android:layout_toRightOf="@+id/tv_list_item_prepare"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="80px"
+            android:layout_gravity="center"
+            android:background="@color/colorLine" />
+
+        <RelativeLayout
+            android:id="@+id/rl_list_item_routing"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_list_item_routing"
+                android:layout_width="48px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="28px"
+                android:src="@mipmap/routing" />
+
+            <TextView
+                android:id="@+id/tv_list_item_routing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_list_item_routing"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18px"
+                android:text="@string/routing"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+
+            <ImageView
+                android:id="@+id/iv_list_item_routing_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_list_item_routing"
+                android:layout_toEndOf="@+id/tv_list_item_routing"
+                android:layout_toRightOf="@+id/tv_list_item_routing"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="80px"
+            android:layout_gravity="center"
+            android:background="@color/colorLine" />
+
+        <RelativeLayout
+            android:id="@+id/rl_list_item_disbursement"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_list_item_disbursement"
+                android:layout_width="48px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="28px"
+                android:src="@mipmap/disbursement" />
+
+            <TextView
+                android:id="@+id/tv_list_item_disbursement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_list_item_disbursement"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="18px"
+                android:text="@string/disbursement"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_l" />
+
+            <ImageView
+                android:id="@+id/iv_list_item_disbursement_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_list_item_disbursement"
+                android:layout_toEndOf="@+id/tv_list_item_disbursement"
+                android:layout_toRightOf="@+id/tv_list_item_disbursement"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="80px"
+            android:layout_gravity="center"
+            android:background="@color/colorLine" />
+
+        <RelativeLayout
+            android:id="@+id/rl_list_item_material"
+            android:layout_width="0dp"
+            android:layout_height="130px"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_list_item_material"
+                android:layout_width="48px"
+                android:layout_height="40px"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="28px"
+                android:src="@mipmap/mat" />
+
+            <TextView
+                android:id="@+id/tv_list_item_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_list_item_material"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16px"
+                android:text="@string/mat"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="28px" />
+
+
+            <ImageView
+                android:id="@+id/iv_list_item_material_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_list_item_material"
+                android:layout_toEndOf="@+id/tv_list_item_material"
+                android:layout_toRightOf="@+id/tv_list_item_material"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

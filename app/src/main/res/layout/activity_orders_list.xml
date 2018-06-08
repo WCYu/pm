@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.OrdersListActivity">
+
+    <include layout="@layout/include_header_red_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:background="@mipmap/mat_orders_bg_icon">
+
+        <TextView
+            android:id="@+id/tv_orders_list_pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90px"
+            android:singleLine="true"
+            android:text="北京方正科技有限公司"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <View
+            android:layout_width="90px"
+            android:layout_height="1px"
+            android:layout_below="@+id/tv_orders_list_pro_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18px"
+            android:background="@color/colorWhite" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_orders_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24px"
+        android:divider="@color/colorBG"
+        android:dividerHeight="20px"></ListView>
+
+
+</LinearLayout>

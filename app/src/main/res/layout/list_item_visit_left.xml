@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px">
+
+            <TextView
+                android:id="@+id/tv_list_item_left_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/iv_selector_light"
+                android:padding="8px"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_s" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20px">
+
+            <com.rxjy.pm.widget.CircleImageView
+                android:id="@+id/iv_header_left"
+                android:layout_width="72px"
+                android:layout_height="72px"
+                android:src="@mipmap/group_header_icon" />
+
+            <TextView
+                android:id="@+id/tv_visit_left_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_header_left"
+                android:layout_marginTop="10px"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="@dimen/text_size_s" />
+
+            <TextView
+                android:id="@+id/tv_visit_left_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="10px"
+                android:layout_toRightOf="@+id/iv_header_left"
+                android:background="@drawable/visit_left_bg_icon"
+                android:gravity="center_vertical"
+                android:paddingBottom="20px"
+                android:paddingLeft="40px"
+                android:paddingRight="20px"
+                android:paddingTop="20px"
+                android:text="123"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_m" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

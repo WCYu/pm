@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.my.RuZhiActivity">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100px">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:padding="20px"
+            android:src="@mipmap/back_icon" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="入职资料"
+            android:textColor="#000000"
+            android:textSize="32px" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="8px"
+                android:background="#cbcbcb" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="82px">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:src="@drawable/ic_titlelefticon" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50px"
+                    android:text="照片"
+                    android:textColor="#595757"
+                    android:textSize="28px" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginBottom="30px">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginRight="15px"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/img_xingxiang"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/artistic_photo_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:alpha="0.5"
+                            android:background="#000000"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:text="形象照"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginRight="15px"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/img_zhengjian"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/identification_photo_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:alpha="0.5"
+                            android:background="#000000"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:text="证件照"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16px"
+                android:layout_marginTop="12px"
+                android:layout_marginBottom="12px"
+                android:layout_gravity="center"
+                android:background="#cbcbcb" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="82px">
+
+                <ImageView
+                    android:id="@+id/img_gongren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:src="@drawable/ic_titlelefticon" />
+
+                <TextView
+                    android:id="@+id/tv_gongren"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50px"
+                    android:text="身份信息"
+                    android:textColor="#595757"
+                    android:textSize="28px" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginRight="15px"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/img_shenfen_zheng"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/bank_card_up_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:alpha="0.5"
+                            android:background="#000000"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:text="身份证正面"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginRight="15px"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/img_shenfen_fan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_card_down_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:alpha="0.5"
+                            android:background="#000000"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:text="身份证反面"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="72px">
+
+                <TextView
+                    android:layout_width="140px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center"
+                    android:text="身份姓名"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:gravity="right"
+                    android:hint="身份姓名"
+                    android:inputType="textPersonName"
+                    android:paddingRight="30px"
+                    android:textColor="#595757"
+                    android:textSize="@dimen/text_size_m" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="72px">
+
+                <TextView
+                    android:layout_width="140px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center"
+                    android:text="身份证号"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+
+                <EditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:maxLength="18"
+                    android:enabled="false"
+                    android:gravity="right"
+                    android:hint="身份证号"
+                    android:inputType="textPersonName"
+                    android:paddingRight="30px"
+                    android:textColor="#595757"
+                    android:textSize="@dimen/text_size_m" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16px"
+                android:layout_marginTop="12px"
+                android:layout_marginBottom="12px"
+                android:layout_gravity="center"
+                android:background="#cbcbcb" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="82px">
+
+                <ImageView
+                    android:id="@+id/img_yinhang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:src="@drawable/ic_titlelefticon" />
+
+                <TextView
+                    android:id="@+id/tv_yinhang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50px"
+                    android:text="银行信息"
+                    android:textColor="#595757"
+                    android:textSize="28px" />
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_gravity="center"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginBottom="30px">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginRight="15px"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/img_yinhang_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/bank_card_up_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:alpha="0.5"
+                            android:background="#000000"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:text="银行卡"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="30px"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="72px">
+
+                <TextView
+                    android:layout_width="140px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center"
+                    android:text="银行卡号"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+
+                <EditText
+                    android:id="@+id/et_yinhang_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:maxLength="18"
+                    android:gravity="right"
+                    android:hint="银行卡号"
+                    android:inputType="textPersonName"
+                    android:paddingRight="30px"
+                    android:textColor="#595757"
+                    android:textSize="@dimen/text_size_m" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="12px"
+                android:layout_marginTop="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="72px"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="140px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center"
+                    android:text="开户行"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+
+                <TextView
+                    android:id="@+id/tv_yinhang_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center"
+                    android:text="开户行"
+                    android:textColor="#000000"
+                    android:textSize="28px" />
+                <Spinner
+                    android:layout_width="140px"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20px"
+                    android:textColor="#595757"
+                    android:textSize="@dimen/text_size_m"
+                    />
+
+                <EditText
+                    android:visibility="gone"
+                    android:id="@+id/et_yinhang_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20px"
+                    android:background="@null"
+                    android:ems="10"
+                    android:gravity="right"
+                    android:hint="开户行"
+                    android:inputType="textPersonName"
+                    android:paddingRight="30px"
+                    android:textColor="#595757"
+                    android:textSize="@dimen/text_size_m" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16px"
+                android:layout_marginTop="12px"
+                android:layout_marginBottom="12px"
+                android:layout_gravity="center"
+                android:background="#cbcbcb" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="82px">
+
+                <ImageView
+                    android:id="@+id/img_tijian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="25px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginTop="25px"
+                    android:src="@drawable/ic_titlelefticon" />
+
+                <TextView
+                    android:id="@+id/tv_tijian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50px"
+                    android:text="体检报告"
+                    android:textColor="#595757"
+                    android:textSize="28px" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_gravity="center"
+                android:layout_marginTop="12px"
+                android:layout_marginBottom="12px"
+                android:background="#cbcbcb" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30px"
+                android:layout_marginBottom="30px">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginRight="15px"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:id="@+id/img_tijian_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/medical_examination_report_icon" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40px"
+                            android:alpha="0.5"
+                            android:background="#000000"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:text="体检报告"
+                            />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:layout_marginLeft="15px"
+                    android:layout_marginRight="30px"
+                    android:layout_weight="1"
+                    android:scaleType="fitXY"
+                    />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:paddingTop="50dp">
+
+                <Button
+                    android:id="@+id/btn_commit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorRed"
+                    android:text="上传"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

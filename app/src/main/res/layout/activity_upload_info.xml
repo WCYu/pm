@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+
+    tools:context="com.rxjy.pm.activity.UploadInfoActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/rl_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="24px">
+
+                <RelativeLayout
+                    android:id="@+id/rl_ic_card_up"
+                    android:layout_width="324px"
+                    android:layout_height="210px"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_ic_card_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_card_up_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_ic_card_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:padding="4px"
+                        android:text="身份证正面"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <ImageView
+                        android:id="@+id/iv_onestatus"
+                        android:layout_width="45px"
+                        android:layout_height="45px"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:src="@mipmap/ic_pass"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_ic_card_down"
+                    android:layout_width="324px"
+                    android:layout_height="210px"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_ic_card_down"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_card_down_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_ic_card_down"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:padding="4px"
+                        android:text="身份证反面"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <ImageView
+                        android:id="@+id/iv_twostatus"
+                        android:layout_width="45px"
+                        android:layout_height="45px"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:src="@mipmap/ic_pass"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_bank_up"
+                    android:layout_width="324px"
+                    android:layout_height="210px"
+                    android:layout_below="@+id/rl_ic_card_up"
+                    android:layout_marginTop="24px"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_bank_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/bank_card_up_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_up"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:padding="4px"
+                        android:text="银行卡正面"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <ImageView
+                        android:id="@+id/iv_threestatus"
+                        android:layout_width="45px"
+                        android:layout_height="45px"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:src="@mipmap/ic_pass"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_medical_examination_report"
+                    android:layout_width="324px"
+                    android:layout_height="210px"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/rl_ic_card_up"
+                    android:layout_marginTop="24px"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_medical_examination_report"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/medical_examination_report_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_medical_examination_report"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:padding="4px"
+                        android:text="体检报告"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <ImageView
+                        android:id="@+id/iv_fourstatus"
+                        android:layout_width="45px"
+                        android:layout_height="45px"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:src="@mipmap/ic_pass"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_identification_photo"
+                    android:layout_width="324px"
+                    android:layout_height="210px"
+                    android:layout_below="@+id/rl_medical_examination_report"
+                    android:layout_marginTop="24px"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_identification_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/identification_photo_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_identification_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:padding="4px"
+                        android:text="证件照"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <ImageView
+                        android:id="@+id/iv_sixstatus"
+                        android:layout_width="45px"
+                        android:layout_height="45px"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:src="@mipmap/ic_pass"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_artistic_photo"
+                    android:layout_width="324px"
+                    android:layout_height="210px"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/rl_bank_up"
+                    android:layout_marginTop="24px"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_artistic_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/artistic_photo_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_artistic_photo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/corner_greytranstwo"
+                        android:gravity="center"
+                        android:padding="4px"
+                        android:text="艺术照"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <ImageView
+                        android:id="@+id/iv_fivestatus"
+                        android:layout_width="45px"
+                        android:layout_height="45px"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="10px"
+                        android:layout_marginTop="10px"
+                        android:src="@mipmap/ic_pass"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_info"
+                android:layout_marginTop="20px"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_name_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/name"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@+id/tv_name_line"
+                        android:layout_toEndOf="@+id/tv_name_text"
+                        android:layout_toRightOf="@+id/tv_name_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_name_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_ic_card_num_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/ic_card_num"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_ic_card_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_ic_card_num_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_ic_card_num_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_bank_num_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/bank_num"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_bank_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_bank_num_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:inputType="number"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_num_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_bank_master_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/bank_master"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_bank_master"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_bank_master_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_master_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_bank_name_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/bank_name"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_bank_name_text"
+                        android:gravity="center_vertical"
+                        android:text="请选择"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_name_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_bank_address_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/bank_address"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_bank_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_bank_address_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_bank_address_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_emergency_contact_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/emergency_contact"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_emergency_contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_emergency_contact_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_emergency_contact_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_relation_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/relation"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_relation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_relation_text"
+                        android:gravity="center_vertical"
+                        android:text="请输入"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_relation_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100px">
+
+                    <TextView
+                        android:id="@+id/tv_phone_text"
+                        android:layout_width="160px"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24px"
+                        android:text="@string/phone"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <EditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24px"
+                        android:layout_toRightOf="@id/tv_phone_text"
+                        android:background="@null"
+                        android:hint="请输入"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:textColor="@color/colorBlackLight"
+                        android:textColorHint="@color/colorGray"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_phone_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/selector_input_line"
+                        android:enabled="false" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_upload_info"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:background="@drawable/selector_btn_sub_full"
+        android:text="@string/sub"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_l" />
+
+</LinearLayout>

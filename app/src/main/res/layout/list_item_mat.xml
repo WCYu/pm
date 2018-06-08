@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="24px">
+
+        <com.rxjy.pm.widget.RoundAngleImageView
+            android:id="@+id/riv_list_item_mat"
+            android:layout_width="164px"
+            android:layout_height="164px"
+            android:layout_centerVertical="true"
+            android:scaleType="centerCrop"
+            app:roundHeight="4px"
+            app:roundWidth="4px" />
+
+        <TextView
+            android:id="@+id/tv_list_item_mat_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/riv_list_item_mat"
+            android:singleLine="true"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_list_item_mat_spec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_list_item_mat_name"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/riv_list_item_mat"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_mat_merchant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_list_item_mat_spec"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="10px"
+            android:layout_toRightOf="@+id/riv_list_item_mat"
+            android:background="@color/colorBG"
+            android:gravity="center"
+            android:paddingBottom="4px"
+            android:paddingLeft="20px"
+            android:paddingRight="20px"
+            android:paddingTop="4px"
+            android:textColor="@color/colorRedLight"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_list_item_mat_brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_list_item_mat_spec"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_sum_count"
+            android:layout_width="140px"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/riv_list_item_mat"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/riv_list_item_mat"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_buy_count"
+            android:layout_width="140px"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/riv_list_item_mat"
+            android:layout_toRightOf="@+id/tv_list_item_sum_count"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_mat_add"
+            android:layout_width="48px"
+            android:layout_height="48px"
+            android:layout_alignBottom="@+id/riv_list_item_mat"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/selector_add_s" />
+
+        <TextView
+            android:id="@+id/tv_list_item_mat_count"
+            android:layout_width="92px"
+            android:layout_height="48px"
+            android:layout_alignBottom="@+id/riv_list_item_mat"
+            android:layout_toLeftOf="@+id/iv_list_item_mat_add"
+            android:gravity="center"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="@dimen/text_size_s" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_mat_remove"
+            android:layout_width="48px"
+            android:layout_height="48px"
+            android:layout_alignBottom="@+id/riv_list_item_mat"
+            android:layout_toLeftOf="@+id/tv_list_item_mat_count"
+            android:src="@drawable/selector_remove_s" />
+
+    </RelativeLayout>
+
+</LinearLayout>

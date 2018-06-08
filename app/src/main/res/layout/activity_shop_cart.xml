@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.ShopCartActivity">
+
+    <include layout="@layout/include_header_text_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24px">
+
+        <TextView
+            android:id="@+id/tv_shop_cart_pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="项目：恩维科技有限公司"
+            android:textColor="@color/colorBlackLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:layout_width="16px"
+            android:layout_height="24px"
+            android:layout_below="@+id/tv_shop_cart_pro_name"
+            android:layout_marginTop="12px"
+            android:src="@mipmap/address_icon" />
+
+        <TextView
+            android:id="@+id/tv_shop_cart_pro_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_cart_pro_name"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="10px"
+            android:text="内蒙古齐齐哈尔市"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_s" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <ListView
+        android:id="@+id/lv_shop_cart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@color/colorBG"
+        android:dividerHeight="20px"></ListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorRedLight" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px">
+
+        <ImageView
+            android:id="@+id/iv_all_checked"
+            android:layout_width="38px"
+            android:layout_height="38px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:src="@mipmap/checked_box_normal_icon" />
+
+        <TextView
+            android:id="@+id/tv_all_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10px"
+            android:layout_toRightOf="@+id/iv_all_checked"
+            android:text="全选"
+            android:textColor="@color/colorRedLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="30px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40px"
+            android:layout_toRightOf="@+id/tv_all_checked"
+            android:background="@color/colorRedLight" />
+
+        <TextView
+            android:id="@+id/tv_shop_cart_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80px"
+            android:layout_toRightOf="@+id/tv_all_checked"
+            android:textColor="@color/colorRedLight"
+            android:textSize="@dimen/text_size_l" />
+
+        <TextView
+            android:id="@+id/tv_shop_cart_payment"
+            android:layout_width="240px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/colorRedLight"
+            android:gravity="center"
+            android:text="下单"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+    </RelativeLayout>
+
+</LinearLayout>

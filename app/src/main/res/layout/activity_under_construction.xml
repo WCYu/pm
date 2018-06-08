@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.UnderConstructionActivity">
+
+    <include layout="@layout/include_header_red_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="304px"
+        android:background="@mipmap/prepare_bg_icon">
+
+        <LinearLayout
+            android:id="@+id/lin_under_construction_tip"
+            android:layout_width="match_parent"
+            android:layout_height="40px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="24px"
+            android:paddingRight="24px">
+
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="24px"
+                android:src="@mipmap/tip_red_light_icon" />
+
+            <TextView
+                android:id="@+id/tv_under_construction_tip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:padding="4px"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textColor="@color/colorPinkLight"
+                android:textSize="@dimen/text_size_s" />
+
+            <ImageView
+                android:id="@+id/iv_under_construction_cancel"
+                android:layout_width="30px"
+                android:layout_height="24px"
+                android:src="@mipmap/cancel_red_light_icon" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_under_construction_pro_name_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="68px"
+            android:src="@mipmap/pro_name_icon" />
+
+        <TextView
+            android:id="@+id/tv_under_construction_pro_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_under_construction_pro_name_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_under_construction_pro_name_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_under_construction_address_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/tv_under_construction_pro_name"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="14px"
+            android:src="@mipmap/address_white_icon" />
+
+        <TextView
+            android:id="@+id/tv_under_construction_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_under_construction_address_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_under_construction_address_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <ImageView
+            android:id="@+id/iv_under_construction_time_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/tv_under_construction_address"
+            android:layout_marginLeft="24px"
+            android:layout_marginTop="14px"
+            android:src="@mipmap/time_white_icon" />
+
+        <TextView
+            android:id="@+id/tv_under_construction_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_under_construction_time_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_under_construction_time_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80px"
+            android:layout_alignParentBottom="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_under_construction_prepare"
+                    android:layout_width="30px"
+                    android:layout_height="28px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="60px"
+                    android:src="@mipmap/prepare_pressed_icon" />
+
+                <ImageView
+                    android:id="@+id/iv_under_construction_process"
+                    android:layout_width="30px"
+                    android:layout_height="28px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="300px"
+                    android:src="@mipmap/process_normal_icon" />
+
+                <ImageView
+                    android:id="@+id/iv_under_construction_craft"
+                    android:layout_width="30px"
+                    android:layout_height="28px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="540px"
+                    android:src="@mipmap/craft_normal_icon" />
+
+            </RelativeLayout>
+
+            <RadioGroup
+                android:id="@+id/rg_under_construction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_under_construction_prepare"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingLeft="20px"
+                    android:text="@string/ready"
+                    android:textColor="@color/shape_tv_primary"
+                    android:textSize="@dimen/text_size_l" />
+
+                <RadioButton
+                    android:id="@+id/rb_under_construction_process"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingLeft="20px"
+                    android:text="@string/process"
+                    android:textColor="@color/shape_tv_primary"
+                    android:textSize="@dimen/text_size_l" />
+
+                <RadioButton
+                    android:id="@+id/rb_under_construction_craft"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingLeft="20px"
+                    android:text="@string/craft"
+                    android:textColor="@color/shape_tv_primary"
+                    android:textSize="@dimen/text_size_l" />
+
+            </RadioGroup>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_under_construction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="24px"
+        android:background="@color/colorWhite"></android.support.v4.view.ViewPager>
+
+</LinearLayout>

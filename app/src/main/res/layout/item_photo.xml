@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200px">
+        <ImageView
+            android:id="@+id/iv_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="200px"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/iv_tip"
+            android:layout_width="88px"
+            android:layout_height="88px"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_photode"/>
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_width="fill_parent"
+            android:layout_height="40px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:text="结果（选填）"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_s"
+            android:background="@color/colorGrayDark"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.CameraListActivity">
+
+    <include layout="@layout/include_header_red_layout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="254px"
+        android:background="@mipmap/camera_list_bg_icon"
+        android:padding="24px">
+
+        <ImageView
+            android:id="@+id/iv_camera_list_person_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_marginTop="20px"
+            android:src="@mipmap/person_icon" />
+
+        <TextView
+            android:id="@+id/tv_camera_list_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_camera_list_person_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toRightOf="@+id/iv_camera_list_person_icon"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_camera_list_project_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/tv_camera_list_person"
+            android:layout_marginTop="24px"
+            android:src="@mipmap/pro_name_icon" />
+
+        <TextView
+            android:id="@+id/tv_camera_list_project"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_camera_list_project_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toLeftOf="@+id/iv_camera_list_camera_icon"
+            android:layout_toRightOf="@+id/iv_camera_list_project_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+
+        <ImageView
+            android:id="@+id/iv_camera_list_address_icon"
+            android:layout_width="32px"
+            android:layout_height="32px"
+            android:layout_below="@+id/tv_camera_list_project"
+            android:layout_marginTop="24px"
+            android:src="@mipmap/address_white_icon" />
+
+        <TextView
+            android:id="@+id/tv_camera_list_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_camera_list_address_icon"
+            android:layout_marginLeft="20px"
+            android:layout_toLeftOf="@+id/iv_camera_list_camera_icon"
+            android:layout_toRightOf="@+id/iv_camera_list_address_icon"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_l" />
+
+        <ImageView
+            android:id="@+id/iv_camera_list_camera_icon"
+            android:layout_width="70px"
+            android:layout_height="82px"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/iv_camera_list_person_icon"
+            android:src="@mipmap/camera_red_light_icon" />
+
+        <TextView
+            android:id="@+id/tv_camera_list_normal_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_camera_list_camera_icon"
+            android:layout_marginTop="10px"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_m" />
+
+        <TextView
+            android:id="@+id/tv_camera_list_abnormal_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_camera_list_normal_count"
+            android:layout_marginTop="10px"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_m" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="24px"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="24px">
+
+                <ImageView
+                    android:layout_width="10px"
+                    android:layout_height="30px"
+                    android:src="@mipmap/status_icon" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10px"
+                    android:layout_weight="1"
+                    android:text="项目摄像头"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <Button
+                    android:id="@+id/btn_camera_list_recycle"
+                    android:layout_width="92px"
+                    android:layout_height="40px"
+                    android:visibility="visible"
+                    android:background="@mipmap/recycle_bg_icon" />
+
+            </LinearLayout>
+
+            <com.rxjy.pm.widget.CustomGridView
+                android:id="@+id/gv_camera_list_pro_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:cacheColorHint="@color/colorWhite"
+                android:horizontalSpacing="10px"
+                android:numColumns="3"
+                android:padding="24px"
+                android:verticalSpacing="10px"></com.rxjy.pm.widget.CustomGridView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorLine" />
+
+            <LinearLayout
+                android:id="@+id/lin_unbind_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="24px"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal"
+                    android:padding="24px">
+
+                    <ImageView
+                        android:layout_width="10px"
+                        android:layout_height="30px"
+                        android:src="@mipmap/status_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10px"
+                        android:text="未使用摄像头"
+                        android:textColor="@color/colorBlackLight"
+                        android:textSize="@dimen/text_size_l" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/colorLine" />
+
+                <com.rxjy.pm.widget.CustomGridView
+                    android:id="@+id/gv_camera_list_unbind_camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:cacheColorHint="@color/colorWhite"
+                    android:horizontalSpacing="10px"
+                    android:numColumns="3"
+                    android:padding="24px"
+                    android:verticalSpacing="10px"></com.rxjy.pm.widget.CustomGridView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

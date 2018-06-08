@@ -1,0 +1,55 @@
+<resources
+   >
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.Main" parent="AppTheme" >
+        <item name="android:windowTranslucentStatus" >true</item>
+    </style>
+    <style  name="CountDialog" parent="android:style/Theme.Dialog">  
+         <!--背景颜色及和透明程度-->  
+         <item name="android:windowBackground">@android:color/transparent</item>  
+         <!--是否去除标题 -->  
+         <item name="android:windowNoTitle">true</item>  
+         <!--是否去除边框-->  
+         <item name="android:windowFrame">@null</item>  
+         <!--是否浮现在activity之上-->  
+         <item name="android:windowIsFloating">true</item>  
+         <!--是否模糊-->  
+         <item name="android:backgroundDimEnabled">true</item>  
+          <!--显示软件盘-->
+          <item name="android:windowSoftInputMode">stateAlwaysVisible</item>
+    </style>
+    <style name="time_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+    <style name="FadeInPopWin">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="@android:windowEnterAnimation">@anim/pop_win_content_fade_in</item>
+        <item name="@android:windowExitAnimation">@anim/pop_win_content_fade_out</item>
+    </style>
+    <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/bg_qq_iv_selector</item>
+    </style>
+    <style name="Dialog.NoTitle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationPicker</item>
+    </style>
+    <style name="AnimationPicker" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+</resources>

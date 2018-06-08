@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBG"
+    android:orientation="vertical"
+    tools:context="com.rxjy.pm.activity.MatActivity">
+
+    <include layout="@layout/include_header_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="24px"
+        android:paddingRight="24px">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/tip_red_icon" />
+
+        <TextView
+            android:id="@+id/tv_mat_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:padding="4px"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/text_size_s" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <com.rxjy.pm.widget.HorizontalListView
+        android:id="@+id/hlv_mat"
+        android:layout_width="match_parent"
+        android:layout_height="76px"
+        android:background="@color/colorWhite"></com.rxjy.pm.widget.HorizontalListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorLine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24px">
+
+        <GridView
+            android:id="@+id/gv_mat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="20px"
+            android:numColumns="4"
+            android:verticalSpacing="20px"></GridView>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_mat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/colorWhite"></ListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/colorRedLight" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:paddingBottom="20px"
+            android:paddingLeft="24px"
+            android:paddingRight="24px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:id="@+id/tv_plan_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="计划金额："
+                android:textColor="@color/colorRedLight"
+                android:textSize="@dimen/text_size_s" />
+
+            <TextView
+                android:id="@+id/tv_plan_money_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/tv_plan_money"
+                android:text="¥0"
+                android:lines="1"
+                android:textColor="@color/colorRedLight"
+                android:textSize="@dimen/text_size_s" />
+
+            <TextView
+                android:id="@+id/tv_has_send_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_plan_money"
+                android:layout_marginTop="8px"
+                android:text="已送金额："
+                android:textColor="@color/colorRedLight"
+                android:textSize="@dimen/text_size_s"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/tv_has_send_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_plan_money"
+                android:layout_marginTop="8px"
+                android:layout_toRightOf="@+id/tv_has_send_money"
+                android:text="¥0"
+                android:textColor="@color/colorRedLight"
+                android:textSize="@dimen/text_size_s"
+                android:visibility="invisible" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:background="@color/colorRedLight"
+            android:paddingBottom="20px"
+            android:paddingLeft="24px"
+            android:paddingRight="24px"
+            android:paddingTop="20px">
+
+            <TextView
+                android:id="@+id/tv_shop_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="购物车"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_l" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="60px"
+                android:layout_marginRight="40px"
+                android:layout_toLeftOf="@+id/tv_shop_cart"
+                android:background="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_mat_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¥0"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_s" />
+
+            <TextView
+                android:id="@+id/tv_mat_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_mat_money"
+                android:layout_marginTop="8px"
+                android:text="0种"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_s" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

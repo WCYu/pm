@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#FFFFFF</color>
+    <color name="split_line">#11112233</color>
+    <color name="text1">#59B29C</color>
+    <color name="text2">#333333</color>
+
+    <color name="color1">#F0F0F0</color>
+    <color name="color2">#FFFFFF</color>
+    <color name="color3">#B0B0B0</color>
+    <color name="color4">#666666</color>
+    <color name="color5">#57C5E8</color>
+    <color name="colorPrimary">#ef434e</color>
+    <color name="colorPrimaryDark">#f52f3c</color>
+    <color name="colorAccent">#ef434e</color>
+
+    <color name="iv_selector">#66000000</color>
+
+    <color name="iv_selector_light">#33000000</color>
+
+    <color name="colorWhite">#fff</color>
+
+    <color name="colorBG">#f4f3f9</color>
+
+    <color name="fill_color">#dfdbdb</color>
+
+    <color name="colorLine">#dcdcdc</color>
+
+    <color name="colorGrayLight">#c9c9c9</color>
+
+    <color name="colorkuanleng">#c2c2c2</color>
+    <color name="colorGray">#c9caca</color>
+
+    <color name="colorGrayDark">#727171</color>
+
+    <color name="colorBlackLight">#595757</color>
+
+    <color name="colorBlueLight">#67bbef</color>
+
+    <color name="colorGreen">#39d27f</color>
+
+    <color name="colorOrange">#ffb951</color>
+
+    <color name="colorPink">#ffb5ba</color>
+
+    <color name="colorPinkLight">#ffb3b8</color>
+
+    <color name="colorRedLight">#ef434f</color>
+
+    <color name="colorRed">#f00</color>
+    
+    <color name="colorThe_dark">#9fa0a0</color>
+    <color name="colordark_the">#888888</color>
+    <color name="btn_cancel_color">#999999</color>
+    <color name="btn_confirm_color">#303F9F</color>
+    <color name="timetimepicker_default_text_color">#999999</color>
+    <color name="timepicker_toolbar_bg">#bfb8b9</color>
+    <color name="timepicker_dialog_bg">#80000000</color>
+    <color name="timepicker_line">#e8e8e8</color>
+    <color name="colorbluelkak">#10a8f4</color>
+    <color name="colortypeface">#898989</color>
+    <color name="colorbackground">#f2f2f2</color>
+    <color name="line1">#c9c9c9</color>
+    <color name="cor666">#898989</color>
+</resources>

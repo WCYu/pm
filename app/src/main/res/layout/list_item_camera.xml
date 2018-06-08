@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="214px"
+        android:layout_height="214px">
+
+        <ImageView
+            android:id="@+id/iv_list_item_camera"
+            android:layout_width="212px"
+            android:layout_height="214px"
+            android:src="@mipmap/camera_bind_bg_icon" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_camera_line_status"
+            android:layout_width="60px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10px"
+            android:src="@mipmap/status_on_line_icon" />
+
+        <ImageView
+            android:id="@+id/iv_list_item_camera_status"
+            android:layout_width="60px"
+            android:layout_height="26px"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/iv_list_item_camera_line_status"
+            android:src="@mipmap/status_camera_normal_icon" />
+
+        <TextView
+            android:id="@+id/tv_list_item_camera"
+            android:layout_width="212px"
+            android:layout_height="38px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="4px"
+            android:background="@color/iv_selector"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="办公室"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_m" />
+
+    </RelativeLayout>
+
+</LinearLayout>
