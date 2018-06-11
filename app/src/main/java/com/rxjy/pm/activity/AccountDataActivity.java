@@ -26,6 +26,7 @@ import com.rxjy.pm.entity.UploadInfo;
 import com.rxjy.pm.entity.WorkerPersonDBean;
 import com.rxjy.pm.mvp.contract.WorkerPersonDContract;
 import com.rxjy.pm.mvp.presenter.WorkerPersonDPresenter;
+import com.rxjy.pm.widget.OkhttpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,6 @@ import butterknife.OnClick;
  */
 
 public class AccountDataActivity extends BaseActivity<WorkerPersonDPresenter> implements WorkerPersonDContract.View {
-
     @Bind(R.id.iv_back)
     ImageView ivBack;
     @Bind(R.id.iv_add)

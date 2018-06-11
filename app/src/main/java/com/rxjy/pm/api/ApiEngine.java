@@ -30,7 +30,7 @@ public class ApiEngine {
 //    public static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
 
         public static String BASEURL = "http://192.168.1.170:8099/";//测试
-//    public static String BASEURL = "http://wrrsnew.lm.rxjy.com:8181"; //线上
+//    public static String BASEURL = "http://wrrsnew.lm.rxjy.com:8181/"; //线上
 
         public static final String GC_API_HOST_CUSTOMER = "http://api.lm.cs/";//测试
 //    public static final String GC_API_HOST_CUSTOMER = "http://api.lm.rxjy.com:8034/";//线上
@@ -70,6 +70,10 @@ public class ApiEngine {
     //多张图片上传
     public static String ALLIMGURL = BASEURL + "a/app/savePhotosByUid";
 
+    //入职资料
+    public static String RUZHIZILIAOURL = BASEURL + "a/app/appCooperationRedirect";
+    //是否同意入职条件
+    public static String ADDISRUZHIURL = BASEURL + "a/app/updateIntention";
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;
     private Retrofit gcRetrofit;

@@ -178,7 +178,8 @@
         <activity android:name=".activity.my.XiangMuInfoActivity" />
         <activity android:name=".activity.my.GongRenActivity" />
         <activity android:name=".activity.my.GongRenInfoActivity" />
-        <activity android:name=".activity.my.RuZhiActivity"></activity>
+        <activity android:name=".activity.my.RuZhiActivity" />
+        <activity android:name=".activity.my.IsRuZhiActivity"></activity>
     </application>
 
 </manifest>

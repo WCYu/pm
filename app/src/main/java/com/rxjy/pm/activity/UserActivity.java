@@ -9,18 +9,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.rxjy.pm.R;
 import com.rxjy.pm.activity.my.GongRenActivity;
+import com.rxjy.pm.activity.my.IsRuZhiActivity;
 import com.rxjy.pm.activity.my.RuZhiActivity;
 import com.rxjy.pm.activity.my.XiangMuActivity;
 import com.rxjy.pm.api.ApiEngine;
 import com.rxjy.pm.commons.App;
 import com.rxjy.pm.commons.base.BaseActivity;
 import com.rxjy.pm.commons.base.BasePresenter;
+import com.rxjy.pm.entity.RuZhiInfoBean;
 import com.rxjy.pm.entity.XiangMuInfoBean;
 import com.rxjy.pm.widget.OkhttpUtils;
 
@@ -129,7 +132,8 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
         tvTrydate.setText(App.baseInfo.getBirthday());
         tvSex.setText(App.baseInfo.getSex());
         tvPhone.setText(App.baseInfo.getPhone());
-        tvGcid.setText("施工");
+        String area = App.personnelInfo.getArea();
+        tvGcid.setText(area+"-施工");
         tvUserId.setText(App.baseInfo.getUserId());
         Glide.with(this).load(App.baseInfo.getImage()).apply(RequestOptions.circleCropTransform()).into(icIcon);
         initListenr();
@@ -174,7 +178,7 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
                 intent = new Intent(this, GongRenActivity.class);
                 break;
             case R.id.rl_ruzhi:
-                intent = new Intent(this, RuZhiActivity.class);
+                getRuZhiData();
                 break;
             case R.id.iv_back:
                 finish();
@@ -189,6 +193,47 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
         if(intent!=null){
             startActivity(intent);
         }
+    }
+
+    //获取的入职信息
+    public void getRuZhiData() {
+
+        Map map = new HashMap();
+        map.put("uid", App.pmUserInfo.getUid());
+        OkhttpUtils.doGet(ApiEngine.RUZHIURL, map, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_入职资料", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("tag_入职资料", string);
+                Gson gson = new Gson();
+                RuZhiInfoBean ruZhiInfoBean = gson.fromJson(string, RuZhiInfoBean.class);
+                int statusCode = ruZhiInfoBean.getStatusCode();
+                RuZhiInfoBean.BodyBean body = ruZhiInfoBean.getBody();
+                final RuZhiInfoBean.BodyBean.UserInfoBean userInfo = body.getUserInfo();
+                if (statusCode == 1) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int intentionStatus = userInfo.getIntentionStatus();
+                            if(intentionStatus==1){
+                                Intent intent = new Intent(UserActivity.this, RuZhiActivity.class);
+                                startActivity(intent);
+                            }else {
+                                Intent intent = new Intent(UserActivity.this, IsRuZhiActivity.class);
+                                startActivity(intent);
+                            }
+                        }
+                    });
+                } else {
+                    Toast.makeText(application, ruZhiInfoBean.getStatusMsg(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     //工人认证列表

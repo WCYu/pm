@@ -426,6 +426,7 @@ public class RuZhiActivity extends BaseActivity {
                             etYinhangName.setText(userInfo.getBankName());
                             tvYinhangTitle.setText(userInfo.getBankName());
                             yinHangName = userInfo.getBankName();
+                            int intentionStatus = userInfo.getIntentionStatus();
                             Glide.with(RuZhiActivity.this).load(photos.getVisualize().getUrl()).into(imgXingxiang);
                             Glide.with(RuZhiActivity.this).load(photos.getIDCardFace().getUrl()).into(imgZhengjian);
                             Glide.with(RuZhiActivity.this).load(photos.getIDCardFace().getUrl()).into(imgShenfenZheng);
