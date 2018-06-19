@@ -134,7 +134,7 @@ public class ProDetailActivity extends BaseActivity {
                 startActivity(matIntent);
                 break;
             case R.id.rl_camera:
-                Intent cameraIntent = new Intent(this, NewCameraListActivity.class);
+                Intent cameraIntent = new Intent(this, CameraListActivity.class);
                 cameraIntent.putExtra(Constants.ACTION_TO_CAMERA_LIST_PRO_INFO, proInfo);
                 startActivity(cameraIntent);
                 break;

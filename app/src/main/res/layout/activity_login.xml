@@ -229,17 +229,6 @@
         android:textSize="34px" />
 
     <TextView
-        android:id="@+id/tv_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="28px"
-        android:layout_margin="40px"
-        android:textColor="@color/colorRed"
-        android:text=""
-        android:layout_gravity="center"
-        />
-
-    <TextView
         android:id="@+id/tv_forget_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -277,4 +266,23 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28px"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="40px"
+            android:textColor="@color/colorRed"
+            android:text=""
+            android:layout_gravity="center"
+            />
+
+    </RelativeLayout>
 </LinearLayout>

@@ -1,22 +1,15 @@
 package com.rxjy.pm.activity;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bigkoo.pickerview.OptionsPickerView;
 import com.bumptech.glide.Glide;
@@ -27,38 +20,23 @@ import com.luck.picture.lib.entity.LocalMedia;
 import com.rxjy.pm.R;
 import com.rxjy.pm.commons.Constants;
 import com.rxjy.pm.commons.base.BaseActivity;
-import com.rxjy.pm.commons.utils.AutoUtils;
-import com.rxjy.pm.commons.utils.JSONUtils;
 import com.rxjy.pm.entity.AreaInfo;
 import com.rxjy.pm.entity.CameraImageInfo;
-import com.rxjy.pm.entity.DebugCameraImageURLInfo;
-import com.rxjy.pm.entity.DebugCameraInfo;
-import com.rxjy.pm.entity.NewCameraListInfo;
 import com.rxjy.pm.entity.ProjectInfo;
 import com.rxjy.pm.entity.UnbindCameraListInfo;
-import com.rxjy.pm.entity.UpDataPictureSuccessInfo;
 import com.rxjy.pm.mvp.contract.CameraUnbindContract;
 import com.rxjy.pm.mvp.presenter.CameraUnbindPresenter;
-import com.rxjy.pm.widget.OkhttpUtils;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import Decoder.BASE64Encoder;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
-public class CameraUnbindActivity extends AppCompatActivity {
+public class CameraUnbindActivity extends BaseActivity<CameraUnbindPresenter> implements CameraUnbindContract.View {
 
     @Bind(R.id.iv_back)
     ImageView ivBack;
@@ -83,7 +61,6 @@ public class CameraUnbindActivity extends AppCompatActivity {
 
     public static final String TITLE = "摄像头安装";
 
-    public static final String TAG = "CameraUnbindActivity";
     private OptionsPickerView areaPicker;
 
     private List<String> areaList;
@@ -101,25 +78,17 @@ public class CameraUnbindActivity extends AppCompatActivity {
     private Timer mTimer;
 
     private int count = 0;
-    private ProgressDialog dialog;
-    private NewCameraListInfo.BodyBean cameraInfo;
-    private Timer timer;
-    private TimerTask timerTask;
+
+    private UnbindCameraListInfo.UnbindCameraInfo cameraInfo;
+
     private ProjectInfo.Project proInfo;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        View view = View.inflate(this, R.layout.activity_camera_unbind, null);
-        AutoUtils.setSize(this, false, 720, 1280);
-
-        AutoUtils.auto(view);
-        setContentView(view);
-
-        ButterKnife.bind(this);
-        initData();
+    public int getLayout() {
+        return R.layout.activity_camera_unbind;
     }
 
+    @Override
     public void initData() {
         initIntent();
         initTitle();
@@ -129,7 +98,7 @@ public class CameraUnbindActivity extends AppCompatActivity {
     }
 
     private void initIntent() {
-        cameraInfo = (NewCameraListInfo.BodyBean) getIntent().getSerializableExtra(Constants.ACTION_TO_CAMERA_UNBIND_CAMERA_INFO);
+        cameraInfo = (UnbindCameraListInfo.UnbindCameraInfo) getIntent().getSerializableExtra(Constants.ACTION_TO_CAMERA_UNBIND_CAMERA_INFO);
         proInfo = (ProjectInfo.Project) getIntent().getSerializableExtra(Constants.ACTION_TO_CAMERA_UNBIND_PRO_INFO);
     }
 
@@ -139,7 +108,7 @@ public class CameraUnbindActivity extends AppCompatActivity {
 
     private void initPhoto() {
 
-        tvNumber.setText("编号：" + cameraInfo.getCamerano());
+        tvNumber.setText("编号：" + cameraInfo.getEquipmentno());
 
         Glide.with(this).load(standardUrl).into(ivStandard);
 
@@ -166,9 +135,21 @@ public class CameraUnbindActivity extends AppCompatActivity {
             }
         }).build();
 
+        mPresenter.getAreaList(proInfo.getOrderNo());
 
     }
 
+    @Override
+    protected CameraUnbindPresenter onCreatePresenter() {
+        return new CameraUnbindPresenter(this);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -179,26 +160,9 @@ public class CameraUnbindActivity extends AppCompatActivity {
                     // 图片选择结果回调
                     List<LocalMedia> localMedias = PictureSelector.obtainMultipleResult(data);
                     bindUrl = localMedias.get(0).getCompressPath();
-                    Log.i(TAG, "bindURL>>>>>>>>>>>" + bindUrl);
                     Glide.with(this).load(bindUrl).into(ivUserPhoto);
                     break;
             }
-        }
-    }
-
-    public void showLoading() {
-        if (dialog != null && dialog.isShowing()) return;
-        dialog = new ProgressDialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage("正在抓拍...");
-        dialog.show();
-    }
-
-    public void dismissLoading() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
         }
     }
 
@@ -234,70 +198,7 @@ public class CameraUnbindActivity extends AppCompatActivity {
                 break;
             case R.id.btn_camera_unbind_debug:
                 showLoading();
-//                mPresenter.getDebugData(proInfo.getOrderNo(), cameraInfo.getEquipmentno());
-                HashMap<String, Object> map = new HashMap<>();
-                map.put("orderno", proInfo.getOrderNo());
-                map.put("imei", cameraInfo.getImei());
-//                showLoading();
-//                mPresenter.getDebugData(proInfo.getOrderNo(), cameraInfo.getENumber());
-                OkhttpUtils.doPost("http://sxt.gc.cs/cameraManage/app/updateCapturePhoto", map, new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        final String string = response.body().string();
-                        Log.i("tag", "抓拍接口测试>>>>>>>>>>>>" + string);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                DebugCameraInfo debugCameraInfo = JSONUtils.toObject(string, DebugCameraInfo.class);
-                                String statusCode = debugCameraInfo.getStatusCode();
-                                if (timer == null) {
-                                    timer = new Timer();
-                                }
-                                if (timerTask == null) {
-                                    //WorkerThread不能操作UI，交给Handler处理
-                                    timerTask = new TimerTask() {
-                                        private String string1;
-
-                                        @Override
-                                        public void run() {
-                                            //WorkerThread不能操作UI，交给Handler处理
-                                            HashMap<String, Object> map1 = new HashMap<>();
-                                            map1.put("orderno", proInfo.getOrderNo());
-                                            map1.put("imei", cameraInfo.getImei());
-                                            map1.put("position", cameraInfo.getPosition());
-                                            OkhttpUtils.doPost("http://sxt.gc.cs/cameraManage/app/getCapturePhoto", map1, new Callback() {
-
-
-                                                @Override
-                                                public void onFailure(Call call, IOException e) {
-
-                                                }
-
-                                                @Override
-                                                public void onResponse(Call call, Response response) throws IOException {
-                                                    string1 = response.body().string();
-                                                    Message msg = new Message();
-                                                    msg.obj = string1;
-                                                    msg.what = 1;
-                                                    handler.sendMessage(msg);
-                                                }
-                                            });
-                                        }
-                                    };
-                                }
-                                timer.schedule(timerTask, 1000, 10 * 1000);
-                                btnDebug.setVisibility(View.GONE);
-
-                            }
-                        });
-                    }
-                });
+                mPresenter.getDebugData(proInfo.getOrderNo(), cameraInfo.getEquipmentno());
                 break;
             case R.id.tv_camera_unbind_area:
                 areaPicker.show();
@@ -305,11 +206,11 @@ public class CameraUnbindActivity extends AppCompatActivity {
             case R.id.btn_camera_unbind:
                 areaName = etArea.getText().toString().trim();
                 if (bindUrl.equals("")) {
-                    Toast.makeText(this, "请选择一张一张摄像头照片", Toast.LENGTH_SHORT).show();
+                    showToast("请选择一张一张摄像头照片");
                     return;
                 }
                 if (areaName.equals("")) {
-                    Toast.makeText(this, "请添加区域名称", Toast.LENGTH_SHORT).show();
+                    showToast("请添加区域名称");
                     return;
                 }
 //                if (areaName.equals("")) {
@@ -326,43 +227,8 @@ public class CameraUnbindActivity extends AppCompatActivity {
                 builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        String imageStr = getImageStr(bindUrl);
-                        HashMap<String, Object> map = new HashMap<>();
-                        map.put("orderno", proInfo.getOrderNo());
-                        map.put("imei", cameraInfo.getImei());
-                        map.put("position", areaName);
-                        map.put("imgBase", imageStr);
-//                        mPresenter.subCameraInfo(proInfo.getCityID(), proInfo.getOrderNo(), cameraInfo.getEquipmentno(), CameraUnbindActivity.this.areaName, bindUrl);
-                        OkhttpUtils.doPost("http://sxt.gc.cs/cameraManage/app/finishCamera", map, new Callback() {
-                            @Override
-                            public void onFailure(Call call, IOException e) {
-
-                            }
-
-                            @Override
-                            public void onResponse(Call call, Response response) throws IOException {
-                                final String string = response.body().string();
-                                Log.i(TAG, "确认安装摄像头" + string);
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        UpDataPictureSuccessInfo upDataPictureSuccessInfo = JSONUtils.toObject(string, UpDataPictureSuccessInfo.class);
-                                        String statusCode = upDataPictureSuccessInfo.getStatusCode();
-                                        if (statusCode.equals(1)) {
-                                            finish();
-                                        }
-                                    }
-                                });
-                            }
-                        });
-                        try {
-                            Thread.sleep(800);
-                            finish();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                        mPresenter.subCameraInfo(proInfo.getCityID(), proInfo.getOrderNo(), cameraInfo.getEquipmentno(), CameraUnbindActivity.this.areaName, bindUrl);
                     }
-
                 });
                 builder.setNegativeButton("取消", null);
                 builder.show();
@@ -370,88 +236,98 @@ public class CameraUnbindActivity extends AppCompatActivity {
         }
     }
 
-
-    /**
-     * 照片预览
-     */
-    public void photoPreview(String url) {
-        com.luck.picture.lib.entity.LocalMedia localMedia = new com.luck.picture.lib.entity.LocalMedia();
-        localMedia.setPath(url);
-        List<LocalMedia> list = new ArrayList<>();
-        list.add(localMedia);
-        PictureSelector.create(this).externalPicturePreview(0, list);
+    @Override
+    public void responseAreaListData(List<AreaInfo.Area> dataList) {
+        areaList.clear();
+        aList.clear();
+        aList.addAll(dataList);
+        for (AreaInfo.Area info : aList) {
+            areaList.add(info.getAeraname());
+        }
+        areaPicker.setPicker(areaList);
     }
 
-    public static String getImageStr(String imgFile) {
-        InputStream inputStream = null;
-        byte[] b = null;
-        try {
-            if (null != imgFile) {
-                inputStream = new FileInputStream(imgFile);
-                int count = 0;
-                while (count == 0) {
-                    count = inputStream.available();
-                }
-                b = new byte[count];
-                Log.i("tag", "imgfile============" + imgFile);
-                Log.i("tag", "count============" + count);
-                inputStream.read(b);
-                inputStream.close();
-            } else {
-                Log.i("tag", "data为空！！！");
-            }
-        } catch (IOException e) {
-            Log.i("tag", e.getMessage());
-            e.printStackTrace();
+    @Override
+    public void responseAreaListDataError(String msg) {
+        showToast(msg);
+    }
+
+    @Override
+    public void responseDebugData() {
+        if (mTimer == null) {
+            mTimer = new Timer();
         }
-        // 加密
-        BASE64Encoder encoder = new BASE64Encoder();
-        if (null != b) {
-//            Log.i("tag", "encoder>>>>>>>>>>>>" + encoder.encode(b));
-            return encoder.encode(b);
-        } else {
-            return "error";
+        mTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                count++;
+                if (count != 10) {
+                    mPresenter.getDebugImageData(proInfo.getOrderNo(), cameraInfo.getEquipmentno());
+                } else {
+                    Message msg = Message.obtain();
+                    msg.obj = "timeOut";
+                    mHandler.sendMessage(msg);
+                }
+            }
+        }, 0, 10000);
+    }
+
+    @Override
+    public void handlerMeaasg(Message msg) {
+        String obj = (String) msg.obj;
+        if (obj.equals("timeOut")) {
+            count = 0;
+            dismissLoading();
+            showToast("抓拍超时");
+            mTimer.cancel();
+            mTimer = null;
         }
     }
 
-    private int i;
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == 1) {
-                String obj = (String) msg.obj;
-                Log.i("tag", "摄像头详情抓拍>>>>>>>>>>" + obj);
-                DebugCameraImageURLInfo debugCameraImageURLInfo = JSONUtils.toObject(obj, DebugCameraImageURLInfo.class);
-                i++;
-                Log.i("tag", "i==================" + i);
-                String imgUrl = debugCameraImageURLInfo.getBody();
-                Log.i("tag", "摄像头详情imgUrl============" + imgUrl);
-                //到时间后，想要执行的代码
-                if (i >= 8) {
-                    Toast.makeText(CameraUnbindActivity.this, "抓拍超时", Toast.LENGTH_SHORT).show();
-                    dismissLoading();
-                    btnDebug.setVisibility(View.VISIBLE);
-                    timer.cancel();
-                    timer = null;
-                    timerTask.cancel();
-                    timerTask = null;
-                    i = 0;
-                } else if (!(imgUrl.equals(""))) {
-                    Glide.with(CameraUnbindActivity.this).load(imgUrl).into(ivDebug);
-                    dismissLoading();
-//                    photoPreview(imgUrl);
-                    btnDebug.setVisibility(View.VISIBLE);
-                    timer.cancel();
-                    timer = null;
-                    timerTask.cancel();
-                    timerTask = null;
-                    i=0;
-                    Toast.makeText(CameraUnbindActivity.this, "抓拍成功", Toast.LENGTH_SHORT).show();
-                    Log.i("tag", "任务取消");
-                }
-            }
-        }
-    };
+    @Override
+    public void responseDebugDataError(String msg) {
+        dismissLoading();
+        showToast(msg);
+    }
 
+    @Override
+    public void responseDebugImageData(CameraImageInfo.CameraImage data) {
+        if (data != null) {
+            count = 0;
+            dismissLoading();
+            mTimer.cancel();
+            mTimer = null;
+            debugUrl = data.getPti_ImgSrc() + "/" + data.getPti_SaveFileName();
+            Glide.with(this).load(data.getPti_ImgSrc() + "/240X240/" + data.getPti_SaveFileName()).into(ivDebug);
+        }
+    }
+
+    @Override
+    public void responseDebugImageDataError(String msg) {
+        dismissLoading();
+        mTimer.cancel();
+        mTimer = null;
+        showToast(msg);
+    }
+
+    @Override
+    public void responseBindCameraData() {
+        showToast("绑定成功");
+        finish();
+    }
+
+    @Override
+    public void responseBindCameraDataError(String msg) {
+        showToast(msg);
+    }
+
+    @Override
+    public void showDialog() {
+        showLoading();
+    }
+
+    @Override
+    public void hideDialog() {
+        dismissLoading();
+    }
 }
