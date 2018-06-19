@@ -58,7 +58,8 @@ public interface LoginContract {
 
         );
         Observable<String> getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
     }
 
@@ -78,7 +79,8 @@ public interface LoginContract {
         );
 
         public abstract void getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
 
     }

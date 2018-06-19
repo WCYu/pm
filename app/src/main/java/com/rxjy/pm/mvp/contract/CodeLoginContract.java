@@ -59,7 +59,8 @@ public interface CodeLoginContract {
         );
 
         Observable<String> getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
         Observable<String> getLoginWorkerInfo(
                 String mobile
@@ -85,7 +86,8 @@ public interface CodeLoginContract {
         );
 
         public abstract void getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
         public abstract void getLoginWorkerInfo(
                 String mobile

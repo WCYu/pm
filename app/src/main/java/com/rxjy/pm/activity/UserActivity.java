@@ -178,13 +178,14 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
                 intent = new Intent(this, GongRenActivity.class);
                 break;
             case R.id.rl_ruzhi:
+                showLoading();
                 getRuZhiData();
                 break;
             case R.id.iv_back:
                 finish();
                 break;
             case R.id.ic_icon:
-//                startActivity(new Intent(this, UserInfoActivity.class));
+                startActivity(new Intent(this, UserInfoActivity.class));
 //                startActivity(new Intent(this, UploadInfoActivity.class));
                 break;
                 default:
@@ -220,9 +221,11 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
                         @Override
                         public void run() {
                             int intentionStatus = userInfo.getIntentionStatus();
+                            dismissLoading();
                             if(intentionStatus==1){
                                 Intent intent = new Intent(UserActivity.this, RuZhiActivity.class);
                                 startActivity(intent);
+
                             }else {
                                 Intent intent = new Intent(UserActivity.this, IsRuZhiActivity.class);
                                 startActivity(intent);
@@ -232,8 +235,10 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
                 } else {
                     Toast.makeText(application, ruZhiInfoBean.getStatusMsg(), Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
+        setProgressDialog(3000);
     }
 
     //工人认证列表

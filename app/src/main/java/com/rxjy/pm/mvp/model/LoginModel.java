@@ -38,9 +38,10 @@ public class LoginModel implements LoginContract.Model {
     }
 
     @Override
-    public Observable<String> getPmUserInfo(String phoneNum) {
+    public Observable<String> getPmUserInfo(String phoneNum,int id) {
+            Log.e("测试-----",""+id);
         return ApiEngine.getInstance().getGcApiService()
-                .getPmUserInfo(phoneNum,1)
+                .getPmUserInfo(phoneNum,id)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

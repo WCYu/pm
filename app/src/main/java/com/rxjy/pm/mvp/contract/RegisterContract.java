@@ -64,7 +64,8 @@ public interface RegisterContract {
         );
 
         Observable<String> getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
 
     }
@@ -92,7 +93,8 @@ public interface RegisterContract {
         );
 
         public abstract void getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
 
     }

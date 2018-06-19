@@ -48,6 +48,7 @@ public class LogoPresenter extends LogoContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
+                        Log.e(TAG, "获取用户信息 = " + s);
                         UserInfo info = JSONUtils.toObject(s, UserInfo.class);
                         if (info.getStatusCode() == 0) {
                             UserInfo.User data = info.getBody();
@@ -67,8 +68,8 @@ public class LogoPresenter extends LogoContract.Presenter {
     }
 
     @Override
-    public void getPmUserInfo(String phoneNum) {
-        Subscription subscribe = mModel.getPmUserInfo(phoneNum)
+    public void getPmUserInfo(String phoneNum,int id) {
+        Subscription subscribe = mModel.getPmUserInfo(phoneNum,id)
                 .subscribe(new Subscriber<String>() {
 
                     @Override

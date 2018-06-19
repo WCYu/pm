@@ -153,7 +153,12 @@ public class LogoActivity extends BaseActivity<LogoPresenter> implements LogoCon
             // PrefUtils.putIntValue(this,Constants.FLAG,data.getPersonnelInfo().getPostId());
              mPresenter.getLoginWorkerInfo(App.baseInfo.getPhone());
          }else {
-             mPresenter.getPmUserInfo(data.getBaseinfo().getPhone());
+             if(data.getPersonnelInfo().getPostId()==20001||data.getPersonnelInfo().getPostId()==20002){
+                 mPresenter.getPmUserInfo(data.getBaseinfo().getPhone(),2);
+             }else if(data.getPersonnelInfo().getPostId()==1){
+                 mPresenter.getPmUserInfo(data.getBaseinfo().getPhone(),1);
+             }
+
          }
 
     }

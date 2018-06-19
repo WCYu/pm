@@ -163,10 +163,16 @@ public class CodeLoginActivity extends BaseActivity<CodeLoginPresenter> implemen
         App.personnelInfo = data.getPersonnelInfo();
 
          if(data.getPersonnelInfo().getPostId()==1) {
-             mPresenter.getPmUserInfo(App.baseInfo.getPhone());
+             mPresenter.getPmUserInfo(App.baseInfo.getPhone(),1);
 
          }else if(data.getPersonnelInfo().getPostId()==4){
              mPresenter.getLoginWorkerInfo(data.getBaseinfo().getPhone());
+
+         }else if(data.getPersonnelInfo().getPostId()==2001){
+             mPresenter.getPmUserInfo(App.baseInfo.getPhone(),2);
+
+         }else if(data.getPersonnelInfo().getPostId()==2002){
+             mPresenter.getPmUserInfo(App.baseInfo.getPhone(),2);
 
          }else {
              Toast.makeText(this,data.getPersonnelInfo().getPostName()+"请登陆其他平台", Toast.LENGTH_SHORT).show();

@@ -75,6 +75,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     Button btnLogin;
     @Bind(R.id.iv_phone_arrow)
     ImageView ivArrow;
+    @Bind(R.id.tv_prompt)
+    TextView tv_prompt;
 
     public static final String TAG = "LoginActivity";
     @Bind(R.id.iv_phone_icon)
@@ -271,18 +273,24 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 phoneNum = etPhoneNum.getText().toString().trim();
                 password = etPassword.getText().toString().trim();
                 if (TextUtils.isEmpty(phoneNum)) {
-                    showToast("请输入手机号");
+//                    showToast("请输入手机号");
+                    tv_prompt.setText("请输入手机号");
                     return;
                 }
                 if (!StringUtils.isMobileNO(phoneNum)) {
-                    showToast("请输入正确的手机号");
+//                    showToast("请输入正确的手机号");
+                    tv_prompt.setText("请输入正确的手机号");
                     return;
                 }
                 if (TextUtils.isEmpty(password)) {
-                    showToast("请输入密码");
+//                    showToast("请输入密码");
+                    tv_prompt.setText("请输入密码");
                     return;
                 }
-
+                if(password.length()<6){
+                    tv_prompt.setText("密码不少于6位");
+                    return;
+                }
                 Log.e("tag_登陆", "开始登陆");
                 map = new HashMap();
                 map.put("cardNo", etPhoneNum.getText().toString());
@@ -298,6 +306,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                     @Override
                     public void onFailure(Call call, IOException e) {
                         Log.e("tag_登陆", e.getMessage().toString());
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                tv_prompt.setText("连接失败");
+                            }
+                        });
                     }
 
                     @Override
@@ -307,6 +321,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                tv_prompt.setText("");
                                 try {
                                     JSONObject jsonObject = new JSONObject(string);
                                     int statusCode = jsonObject.getInt("StatusCode");
@@ -326,7 +341,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 //                                            startActivity(intent);
                                             break;
                                         default:
-                                            Toast.makeText(application, statusMsg, Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(application, statusMsg, Toast.LENGTH_SHORT).show();
+                                            tv_prompt.setText(statusMsg);
                                             break;
                                     }
                                 } catch (JSONException e) {
@@ -376,7 +392,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
                                             break;
                                         default:
-                                            Toast.makeText(application, statusMsg, Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(application, statusMsg, Toast.LENGTH_SHORT).show();
+                                            tv_prompt.setText(statusMsg);
                                             break;
                                     }
                                 } catch (JSONException e) {
@@ -414,15 +431,18 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
         App.baseInfo = data.getBaseinfo();
         App.personnelInfo = data.getPersonnelInfo();
         // Log.e("aa",data.getPersonnelInfo().getPostId()+"");
-        if (data.getPersonnelInfo().getPostId() == 1) {
-            mPresenter.getPmUserInfo(data.getBaseinfo().getPhone());
+        if (data.getPersonnelInfo().getPostId() == 1 ) {
+            mPresenter.getPmUserInfo(data.getBaseinfo().getPhone(),1);
             PrefUtils.putIntValue(this, Constants.FLAG, data.getPersonnelInfo().getPostId());
-        } else if (data.getPersonnelInfo().getPostId() == 4) {
-
+        } else if (data.getPersonnelInfo().getPostId() == 20001|| data.getPersonnelInfo().getPostId() == 20002) {
+            mPresenter.getPmUserInfo(data.getBaseinfo().getPhone(),2);
+            PrefUtils.putIntValue(this, Constants.FLAG, data.getPersonnelInfo().getPostId());
+        }else if (data.getPersonnelInfo().getPostId() == 4 ) {
             mPresenter.getLoginWorkerInfo(data.getBaseinfo().getPhone());
             PrefUtils.putIntValue(this, Constants.FLAG, data.getPersonnelInfo().getPostId());
         } else {
             Toast.makeText(this, data.getPersonnelInfo().getPostName() + "请登陆其他平台", Toast.LENGTH_SHORT).show();
+//            tv_prompt.setText(data.getPersonnelInfo().getPostName() + "请登陆其他平台");
         }
 
     }
@@ -565,6 +585,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                     @Override
                                     public void onFailure(Call call, IOException e) {
                                         Log.e("tag_登陆", e.getMessage().toString());
+                                        runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                tv_prompt.setText("连接失败");
+                                            }
+                                        });
                                     }
 
                                     @Override
@@ -574,6 +600,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
+                                                tv_prompt.setText("");
                                                 try {
                                                     JSONObject jsonObject = new JSONObject(string);
                                                     int statusCode = jsonObject.getInt("StatusCode");
@@ -592,7 +619,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                                             btnLogin.setText("激活");
                                                             break;
                                                         default:
-                                                            Toast.makeText(application, statusMsg, Toast.LENGTH_SHORT).show();
+//                                                            Toast.makeText(application, statusMsg, Toast.LENGTH_SHORT).show();
+                                                            tv_prompt.setText(statusMsg);
                                                             break;
                                                     }
                                                 } catch (JSONException e) {
@@ -603,7 +631,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                                     }
                                 });
                             } else {
-                                Toast.makeText(application, "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(application, "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
+                                tv_prompt.setText("请输入正确的手机号！");
                             }
                         } else {
                         }
@@ -626,6 +655,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                         tvForgetPassword.setVisibility(View.GONE);
                         rlCode.setVisibility(View.GONE);
                         btnLogin.setVisibility(View.GONE);
+                        tv_prompt.setText("");
                     }
                     break;
             }

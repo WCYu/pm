@@ -142,9 +142,9 @@ public class LoginPresenter extends LoginContract.Presenter {
     }
 
     @Override
-    public void getPmUserInfo(String phoneNum) {
-
-        Subscription subscribe = mModel.getPmUserInfo(phoneNum)
+    public void getPmUserInfo(String phoneNum,int id) {
+        Log.e("gg", "获取工程人员信息.f,.sd,f.sd,f = " + id);
+        Subscription subscribe = mModel.getPmUserInfo(phoneNum,id)
                 .subscribe(new Subscriber<String>() {
 
                     @Override

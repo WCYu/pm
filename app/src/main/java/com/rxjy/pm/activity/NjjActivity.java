@@ -146,7 +146,8 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
 
         if (findFragment == null)
             findFragment = new FindFragment();
-        if(PrefUtils.getIntFlag(this, Constants.FLAG)==Manager_Sign){
+
+        if(PrefUtils.getIntFlag(this, Constants.FLAG)==Manager_Sign||PrefUtils.getIntFlag(this, Constants.FLAG)==20001||PrefUtils.getIntFlag(this, Constants.FLAG)==20002){
             //初始化碎片
             if(App.pmUserInfo.getUser_join_state()>0){
                 if (homeFragmentnew == null)

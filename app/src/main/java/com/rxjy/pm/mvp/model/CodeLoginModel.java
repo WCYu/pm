@@ -34,9 +34,9 @@ public class CodeLoginModel implements CodeLoginContract.Model {
     }
 
     @Override
-    public Observable<String> getPmUserInfo(String phoneNum) {
+    public Observable<String> getPmUserInfo(String phoneNum,int id) {
         return ApiEngine.getInstance().getGcApiService()
-                .getPmUserInfo(phoneNum,1)
+                .getPmUserInfo(phoneNum,id)
                 .compose(RxSchedulers.<String>switchThread());
     }
 

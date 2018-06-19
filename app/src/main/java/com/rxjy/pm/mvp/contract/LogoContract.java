@@ -49,7 +49,8 @@ public interface LogoContract {
         );
 
         Observable<String> getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                int id
         );
 
     }
@@ -62,7 +63,8 @@ public interface LogoContract {
         );
 
         public abstract void getPmUserInfo(
-                String phoneNum
+                String phoneNum,
+                 int id
         );
 
 
