@@ -22,9 +22,10 @@ public interface ApiService {
     /**
      * 获取版本信息
      *///http://api.gc.rxjy.com/app/version_com.rxjy.pm.json
-    @GET("app/version_com.rxjy.pm.json")
+    @GET("actionapi/AppCurrencyHome/IsAndroidUpdated")
     Observable<String> getVersionInfo(
-
+            @Query("Version") int version,
+            @Query("AppId") int AppId
     );
 
     /**
@@ -935,7 +936,9 @@ public interface ApiService {
      */
     @GET("api/PhoneApi/APP_GetProjectInfo")
     Observable<String> getCustomerlist(
-            @Query("userID") String userID
+            @Query("userID") String userID,
+            @Query("CardNo") String CardNo,
+            @Query("UserType") String UserType
     );
 
     /**
@@ -951,9 +954,9 @@ public interface ApiService {
      */
     @GET("api/PhoneApi/APP_GetProjectDetails")
     Observable<String> getCustomerCDlist(
-            @Query("rwdID") String rwdID
+            @Query("rwdID") String rwdID,
+            @Query("OrderType") int OrderType
     );
-
     /**
      * 上传洽谈结果
      */

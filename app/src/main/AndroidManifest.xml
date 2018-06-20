@@ -180,6 +180,7 @@
         <activity android:name=".activity.my.GongRenInfoActivity" />
         <activity android:name=".activity.my.RuZhiActivity" />
         <activity android:name=".activity.my.IsRuZhiActivity"></activity>
+        <activity android:name=".activity.WebRecommendActivity"></activity>
     </application>
 
 </manifest>

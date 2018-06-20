@@ -4,7 +4,6 @@ import com.rxjy.pm.commons.base.BaseModel;
 import com.rxjy.pm.commons.base.BasePresenter;
 import com.rxjy.pm.commons.base.BaseView;
 import com.rxjy.pm.entity.DetailsBean;
-import com.rxjy.pm.entity.ProjectCBean;
 
 import rx.Observable;
 
@@ -29,7 +28,8 @@ public interface ProjectDCContract {
     interface Model extends BaseModel {
 
         Observable<String> getProjectCDetail(
-                String rwdID
+                String rwdID,
+                int OrderType
         );
 
     }
@@ -37,7 +37,8 @@ public interface ProjectDCContract {
     abstract class Presenter extends BasePresenter<View, Model> {
 
         public abstract void getProjectCDetail(
-                String rwdID
+                String rwdID,
+                int OrderType
         );
 
     }

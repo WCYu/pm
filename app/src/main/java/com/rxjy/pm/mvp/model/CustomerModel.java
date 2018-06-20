@@ -14,9 +14,9 @@ public class CustomerModel implements CustomerContract.Model{
 
 
     @Override
-    public Observable<String> getCustomerList(String uid) {
+    public Observable<String> getCustomerList(String uid,String CardNo,String UserType) {
         return ApiEngine.getInstance().getGccApiService()
-                .getCustomerlist(uid)
+                .getCustomerlist(uid,CardNo,UserType)
                 .compose(RxSchedulers.<String>switchThread());
     }
 

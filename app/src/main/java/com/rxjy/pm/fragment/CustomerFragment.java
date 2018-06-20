@@ -1,7 +1,6 @@
 package com.rxjy.pm.fragment;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -48,14 +47,14 @@ public class CustomerFragment extends BaseFragment<CustomerPresenter> implements
         super.onHiddenChanged(hidden);
         if(hidden){
         }else{
-            mPresenter.getCustomerList(App.pmUserInfo.getUid()+"");
+            mPresenter.getCustomerList(App.pmUserInfo.getUid()+"",App.cardNo,"1,2");
         }
     }
 
 
     public void Refreshs(){
         if(mPresenter!=null) {
-            mPresenter.getCustomerList(App.pmUserInfo.getUid() + "");
+            mPresenter.getCustomerList(App.pmUserInfo.getUid()+"",App.cardNo,"1,2");
         }
     }
 
@@ -64,7 +63,7 @@ public class CustomerFragment extends BaseFragment<CustomerPresenter> implements
     public void onResume() {
         super.onResume();
         if(mPresenter!=null)
-        mPresenter.getCustomerList(App.pmUserInfo.getUid()+"");
+            mPresenter.getCustomerList(App.pmUserInfo.getUid()+"",App.cardNo,"1,2");
     }
 
     @Override
@@ -82,6 +81,7 @@ public class CustomerFragment extends BaseFragment<CustomerPresenter> implements
 
     @Override
     public void responseCustomer(final CustomerListBean info) {
+
         customerAdapter=new CustomerAdapter(getActivity(),info.getBody());
         llCustomer.setAdapter(customerAdapter);
         llCustomer.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -89,11 +89,11 @@ public class CustomerFragment extends BaseFragment<CustomerPresenter> implements
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (info.getBody().get(position).getPi_Type()){
                     case 3:
-                        startActivity(new Intent(getActivity(), ProjectDetailsActivity.class).putExtra("type","customer").putExtra("rid",info.getBody().get(position).getPi_OrderId()).putExtra("state",info.getBody().get(position).getPi_State()+""));
+
+                        startActivity(new Intent(getActivity(), ProjectDetailsActivity.class).putExtra("type","customer").putExtra("rid",info.getBody().get(position).getPi_OrderId()).putExtra("state",info.getBody().get(position).getPi_State()+"").putExtra("type_stat",info.getBody().get(position).getPi_Type()));
                         break;
                     default:
-                        startActivity(new Intent(getActivity(), ProjectDetailsActivity.class).putExtra("type","company").putExtra("rid",info.getBody().get(position).getPi_OrderId()).putExtra("state",info.getBody().get(position).getPi_State()+""));
-
+                        startActivity(new Intent(getActivity(), ProjectDetailsActivity.class).putExtra("type","company").putExtra("rid",info.getBody().get(position).getPi_OrderId()).putExtra("state",info.getBody().get(position).getPi_State()+"").putExtra("type_stat",info.getBody().get(position).getPi_Type()));
                         break;
                 }
             }

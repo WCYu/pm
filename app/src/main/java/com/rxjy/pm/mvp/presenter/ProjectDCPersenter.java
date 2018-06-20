@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.rxjy.pm.commons.utils.JSONUtils;
 import com.rxjy.pm.entity.DetailsBean;
-import com.rxjy.pm.entity.ProjectCBean;
 import com.rxjy.pm.mvp.contract.ProjectDCContract;
 import com.rxjy.pm.mvp.model.ProjectCModel;
 
@@ -23,8 +22,8 @@ public class ProjectDCPersenter extends ProjectDCContract.Presenter{
     }
 
     @Override
-    public void getProjectCDetail(String rwdID) {
-        Subscription subscribe = mModel.getProjectCDetail(rwdID)
+    public void getProjectCDetail(String rwdID,int OrderType) {
+        Subscription subscribe = mModel.getProjectCDetail(rwdID, OrderType)
                 .subscribe(new Subscriber<String>() {
                     @Override
                     public void onStart() {
@@ -38,7 +37,7 @@ public class ProjectDCPersenter extends ProjectDCContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("", "获取消息类型列表失败 = " + e.toString());
+                        Log.e("tag", "获取消息类型列表失败 = " + e.toString());
                         onCompleted();
                     }
 

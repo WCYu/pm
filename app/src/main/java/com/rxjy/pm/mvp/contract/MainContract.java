@@ -24,7 +24,7 @@ public interface MainContract {
     interface Model extends BaseModel {
 
         Observable<String> getVersionInfo(
-
+                    int version
         );
 
     }
@@ -32,7 +32,7 @@ public interface MainContract {
     abstract class Presenter extends BasePresenter<View, Model> {
 
         public abstract void getVersionInfo(
-
+                int version
         );
 
     }

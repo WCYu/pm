@@ -6,10 +6,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rxjy.pm.R;
-import com.rxjy.pm.activity.FreeJoinActivity;
 import com.rxjy.pm.activity.OrdersProActivity;
 import com.rxjy.pm.activity.ProMoneyActivity;
 import com.rxjy.pm.activity.ShopCartProActivity;
+import com.rxjy.pm.activity.WebRecommendActivity;
 import com.rxjy.pm.commons.base.BaseFragment;
 import com.rxjy.pm.commons.base.BasePresenter;
 
@@ -57,11 +57,11 @@ public class MoreFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.rl_mat_merchant_join, R.id.rl_task, R.id.rl_mat, R.id.rl_pro_money, R.id.rl_shop_cart})
+    @OnClick({R.id.rl_mat_merchant_join, R.id.rl_task, R.id.rl_mat, R.id.rl_pro_money, R.id.rl_shop_cart, R.id.commendation, R.id.auspic})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_mat_merchant_join:
-                startActivity(new Intent(getActivity(), FreeJoinActivity.class));
+             //   startActivity(new Intent(getActivity(), FreeJoinActivity.class));
                 break;
             case R.id.rl_task:
                 break;
@@ -73,6 +73,18 @@ public class MoreFragment extends BaseFragment {
                 break;
             case R.id.rl_shop_cart:
                 startActivity(new Intent(getActivity(), ShopCartProActivity.class));
+                break;
+            case R.id.commendation:
+                startActivity(new Intent(getActivity(), WebRecommendActivity.class));
+                break;
+            case R.id.auspic:
+
+
+
+
+                break;
+
+            default:
                 break;
         }
     }

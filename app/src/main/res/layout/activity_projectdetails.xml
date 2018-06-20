@@ -473,6 +473,7 @@
                 android:layout_height="0.3dip"
                 android:background="@color/line_color" />
             <RelativeLayout
+                android:id="@+id/shejishi_list"
                 android:layout_width="fill_parent"
                 android:layout_height="100px"
                 android:background="@color/colorWhite">
@@ -510,6 +511,7 @@
                 android:background="@color/line_color" />
 
             <RelativeLayout
+                android:id="@+id/shejishi_phone"
                 android:layout_width="fill_parent"
                 android:layout_height="100px"
                 android:background="@color/colorWhite">
@@ -545,6 +547,80 @@
                 android:layout_height="0.3dip"
                 android:background="@color/line_color" />
             <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/ke_phone"
+                android:layout_width="fill_parent"
+                android:layout_height="100px"
+                android:background="@color/colorWhite">
+
+                <TextView
+                    android:id="@+id/ke_phone_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:text="客户姓名"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/ke_phone_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_toRightOf="@+id/ke_phone_title"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="请输入客户姓名"
+                    android:inputType="number"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+            </RelativeLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.3dip"
+                android:background="@color/line_color" />
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/ke_dianhua"
+                android:layout_width="fill_parent"
+                android:layout_height="100px"
+                android:background="@color/colorWhite">
+
+                <TextView
+                    android:id="@+id/ke_dianhua_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20px"
+                    android:text="客户电话"
+                    android:textColor="@color/colorBlackLight"
+                    android:textSize="@dimen/text_size_l" />
+
+                <EditText
+                    android:id="@+id/ke_dianhua_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_toRightOf="@+id/ke_dianhua_title"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="请输入客户电话"
+                    android:inputType="number"
+                    android:textColor="@color/colorGrayDark"
+                    android:textSize="@dimen/text_size_l" />
+            </RelativeLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.3dip"
+                android:background="@color/line_color" />
+            <RelativeLayout
                 android:id="@+id/re_Businessaddress"
                 android:layout_width="fill_parent"
                 android:layout_height="100px"
@@ -571,7 +647,7 @@
                     android:layout_toRightOf="@+id/tv_Businessaddress"
                     android:background="@null"
                     android:ems="10"
-                    android:hint="请输入联系电话"
+                    android:hint="请输入地址"
                     android:inputType="number"
                     android:textColor="@color/colorGrayDark"
                     android:textSize="@dimen/text_size_l" />

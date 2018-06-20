@@ -12,9 +12,9 @@ import rx.Observable;
 
 public class MainModel implements MainContract.Model {
     @Override
-    public Observable<String> getVersionInfo() {
-        return ApiEngine.getInstance().getGcApiService()
-                .getVersionInfo()
+    public Observable<String> getVersionInfo(int version) {
+        return ApiEngine.getInstance().getRsApiService()
+                .getVersionInfo(version,5)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

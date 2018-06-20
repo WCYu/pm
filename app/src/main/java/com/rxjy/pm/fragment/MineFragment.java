@@ -19,6 +19,7 @@ import com.rxjy.pm.activity.WebActivity;
 import com.rxjy.pm.commons.App;
 import com.rxjy.pm.commons.Constants;
 import com.rxjy.pm.commons.base.BaseFragment;
+import com.rxjy.pm.commons.utils.PrefUtils;
 import com.rxjy.pm.mvp.contract.MinContract;
 import com.rxjy.pm.mvp.presenter.MinPresenter;
 import com.rxjy.pm.widget.RoundAngleImageView;
@@ -93,7 +94,13 @@ public class MineFragment extends BaseFragment<MinPresenter> implements MinContr
             case R.id.rl_user_info:
 //                startActivity(new Intent(getActivity(), UserInfoActivity.class));
 //                startActivity(new Intent(getActivity(), UploadInfoActivity.class));
-                startActivity(new Intent(getActivity(), UserActivity.class));
+                if(PrefUtils.getIntFlag(getContext(), Constants.FLAG)==20001||PrefUtils.getIntFlag(getContext(), Constants.FLAG)==20002){
+                  showToast("资料尚未完善");
+                }else {
+                    startActivity(new Intent(getActivity(), UserActivity.class));
+                }
+
+
                 break;
             case R.id.rl_help_center:
                 Intent intent = new Intent(getActivity(), WebActivity.class);

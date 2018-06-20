@@ -54,7 +54,7 @@ public class ApiEngine {
     //登陆激活
     public static String LOGINURL = RS_API_HOST + "actionapi/AppLogin/Login";
     //认证接口
-    public static String RENZHENGURL = "http://192.168.1.170:8099/" + "a/stration/pmUserinfoProjectMsg/GetUserInfoStrationByuid";
+    public static String RENZHENGURL = BASEURL + "a/stration/pmUserinfoProjectMsg/GetUserInfoStrationByuid";
     //上传接口
     public static String SHANGCHUANURL = BASEURL + "a/pmUserinfo/add/addAuthentication ";
     //工人上传

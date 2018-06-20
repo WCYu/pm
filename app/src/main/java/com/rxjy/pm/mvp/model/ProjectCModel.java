@@ -14,9 +14,9 @@ public class ProjectCModel implements ProjectDCContract.Model{
 
 
     @Override
-    public Observable<String> getProjectCDetail(String rwdID) {
+    public Observable<String> getProjectCDetail(String rwdID,  int OrderType) {
         return ApiEngine.getInstance().getGccApiService()
-                .getCustomerCDlist(rwdID)
+                .getCustomerCDlist(rwdID,OrderType)
                 .compose(RxSchedulers.<String>switchThread());
     }
 }

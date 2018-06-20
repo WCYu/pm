@@ -27,13 +27,17 @@ public interface CustomerContract {
 
     interface Model extends BaseModel {
         Observable<String> getCustomerList(
-                String uid
+                String uid,
+                String CardNo,
+                String UserType
         );
     }
 
     abstract class Presenter extends BasePresenter<View, Model> {
         public abstract void getCustomerList(
-                String uid
+                String uid,
+                String CardNo,
+                String  UserType
         );
     }
 

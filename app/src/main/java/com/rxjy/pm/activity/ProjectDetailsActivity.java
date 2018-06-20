@@ -1,7 +1,6 @@
 package com.rxjy.pm.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -57,6 +55,20 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
     TextView tvShejishi;
     @Bind(R.id.tv_phone)
     TextView tvPhone;
+    @Bind(R.id.ke_phone_text)
+    EditText kePhoneText;
+    @Bind(R.id.ke_phone)
+    RelativeLayout kePhone;
+    @Bind(R.id.ke_dianhua_text)
+    EditText keDianhuaText;
+    @Bind(R.id.ke_dianhua)
+    RelativeLayout keDianhua;
+    @Bind(R.id.tv_Designer_Name)
+    TextView tvDesignerName;
+    @Bind(R.id.shejishi_list)
+    RelativeLayout shejishiList;
+    @Bind(R.id.shejishi_phone)
+    RelativeLayout shejishiPhone;
     private List<String> typeslist = new ArrayList<>();
 
     @Bind(R.id.iv_back)
@@ -123,7 +135,9 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
         Intent intent = getIntent();
         type = intent.getStringExtra("type");
         rid = intent.getStringExtra("rid");
+        int type_stat = intent.getIntExtra("type_stat", 0);
         System.out.println(rid + "888888888");
+        Log.e("cccc", rid);
         state = intent.getStringExtra("state");
         if (state.equals("3") || state.equals("4")) {
             tvNo.setVisibility(View.GONE);
@@ -157,8 +171,10 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
         etMianji.setEnabled(false);
         etYusuan.setEnabled(false);
         etBusinessaddress.setEnabled(false);
+        kePhoneText.setEnabled(false);
+        keDianhuaText.setEnabled(false);
         ProjectDCPersenter pres = new ProjectDCPersenter(this);
-        pres.getProjectCDetail(rid);
+        pres.getProjectCDetail(rid,type_stat);
         mPresenter.getProjectDetail(rid);
     }
 
@@ -214,36 +230,157 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
 
     @Override
     public void responseProjectCData(DetailsBean info) {
+        String customerMobile = info.getBody().getProjectAddress();
+
         etCompanyname.setText(info.getBody().getCi_ClientName());
         etType.setText(info.getBody().getCi_TypeName());
         etMianji.setText(info.getBody().getCi_Area() + "㎡");
         etYusuan.setText(info.getBody().getCa_DecBudgetPrice() + "万元");
         etNum.setText(rid);
+        Log.e("tag",info.getBody().getPi_Type()+"");
         switch (info.getBody().getPi_Type()) {
             case 1:
-                tvShejishi.setText("客户姓名");
-                tvPhone.setText("客户电话");
+                shejishiList.setVisibility(View.GONE);
+                shejishiPhone.setVisibility(View.GONE);
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
                 reBusinessaddress.setVisibility(View.VISIBLE);
-                Log.e("aaaaa",info.getBody().getCustomerName());
-                etShejishi.setText(info.getBody().getCustomerName());
-                etPhone.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
                 etBusinessaddress.setText(info.getBody().getProjectAddress() + "");
                 break;
             case 2:
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
+                shejishiList.setVisibility(View.VISIBLE);
+                shejishiPhone.setVisibility(View.VISIBLE);
                 reBusinessaddress.setVisibility(View.GONE);
-                if(info.getBody().getCi_ClientName()==null){
+                if (info.getBody().getCi_DesignerName() == null) {
                     etShejishi.setText("无");
-                }else {
-                    etShejishi.setText(info.getBody().getCi_ClientName());
+                } else {
+                    etShejishi.setText(info.getBody().getCi_DesignerName());
                 }
-                if(info.getBody().getMobile()==null) {
-                    etPhone.setText(info.getBody().getMobile() + "");
-                }else {
+                if (info.getBody().getCi_DesignerPhone() == null) {
+                    etPhone.setText("无");
+                } else {
+                    etPhone.setText(info.getBody().getCi_DesignerPhone() + "");
+                }
 
-                }
                 break;
             case 3:
-
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                shejishiList.setVisibility(View.GONE);
+                shejishiPhone.setVisibility(View.GONE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                break;
+            case 4:
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                shejishiList.setVisibility(View.GONE);
+                shejishiPhone.setVisibility(View.GONE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerMobile());
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                break;
+            case 5:
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                shejishiList.setVisibility(View.VISIBLE);
+                shejishiPhone.setVisibility(View.VISIBLE);
+                if (info.getBody().getCi_DesignerName() == null) {
+                    etShejishi.setText("无");
+                } else {
+                    etShejishi.setText(info.getBody().getCi_DesignerName());
+                }
+                if (info.getBody().getCi_DesignerPhone() == null) {
+                    etPhone.setText("无");
+                } else {
+                    etPhone.setText(info.getBody().getCi_DesignerPhone() + "");
+                }
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                break;
+            case 6:
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                shejishiList.setVisibility(View.VISIBLE);
+                shejishiPhone.setVisibility(View.VISIBLE);
+                if (info.getBody().getCi_DesignerName() == null) {
+                    etShejishi.setText("无");
+                } else {
+                    etShejishi.setText(info.getBody().getCi_DesignerName());
+                }
+                if (info.getBody().getCi_DesignerPhone() == null) {
+                    etPhone.setText("无");
+                } else {
+                    etPhone.setText(info.getBody().getCi_DesignerPhone() + "");
+                }
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                etBusinessaddress.setText(customerMobile);
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                break;
+            case 7:
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                Log.e("tagaa","tag");
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                shejishiList.setVisibility(View.VISIBLE);
+                shejishiPhone.setVisibility(View.VISIBLE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                if (info.getBody().getCi_DesignerName() == null) {
+                    etShejishi.setText("无");
+                } else {
+                    etShejishi.setText(info.getBody().getCi_DesignerName());
+                }
+                if (info.getBody().getCi_DesignerPhone() == null) {
+                    etPhone.setText("无");
+                } else {
+                    etPhone.setText(info.getBody().getCi_DesignerPhone() + "");
+                }
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                break;
+            case 8:
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                shejishiList.setVisibility(View.GONE);
+                shejishiPhone.setVisibility(View.GONE);
+                etBusinessaddress.setText(customerMobile);
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                break;
+            case 9:
+                kePhone.setVisibility(View.VISIBLE);
+                keDianhua.setVisibility(View.VISIBLE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                shejishiList.setVisibility(View.GONE);
+                shejishiPhone.setVisibility(View.GONE);
+                etBusinessaddress.setText(customerMobile);
+                reBusinessaddress.setVisibility(View.VISIBLE);
+                keDianhuaText.setText(info.getBody().getCustomerMobile());
+                kePhoneText.setText(info.getBody().getCustomerName());
+                break;
+            default:
                 break;
         }
 

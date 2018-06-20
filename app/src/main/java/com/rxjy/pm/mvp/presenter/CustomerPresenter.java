@@ -22,8 +22,8 @@ public class CustomerPresenter extends CustomerContract.Presenter {
     }
 
     @Override
-    public void getCustomerList(String uid) {
-        Subscription subscribe = mModel.getCustomerList(uid)
+    public void getCustomerList(String uid, String CardNo, String UserType) {
+        Subscription subscribe = mModel.getCustomerList(uid, CardNo, UserType)
                 .subscribe(new Subscriber<String>() {
 
                     @Override
@@ -44,7 +44,7 @@ public class CustomerPresenter extends CustomerContract.Presenter {
 
                     @Override
                     public void onNext(String s) {
-                        Log.e("======", "获取客户数据啦啦啦啦啦= "+s);
+                        Log.e("======", "获取客户数据啦啦啦啦啦= " + s);
                         CustomerListBean info = JSONUtils.toObject(s, CustomerListBean.class);
                         if (info.getStatusCode() == 1) {
                             mView.responseCustomer(info);

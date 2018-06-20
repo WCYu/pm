@@ -129,7 +129,7 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
         //权限检测
         CheckPermissionsUitl.checkPermissions(this, requestPermissions);
         Log.e("hjhces","测试");
-        mPresenter.getVersionInfo();
+        mPresenter.getVersionInfo(Integer.parseInt(App.getVersionCode()));
     }
 
     @Override
