@@ -74,6 +74,8 @@ public class ApiEngine {
     public static String RUZHIZILIAOURL = BASEURL + "a/app/appCooperationRedirect";
     //是否同意入职条件
     public static String ADDISRUZHIURL = BASEURL + "a/app/updateIntention";
+
+
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;
     private Retrofit gcRetrofit;

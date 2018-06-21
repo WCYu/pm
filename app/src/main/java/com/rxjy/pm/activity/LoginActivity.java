@@ -449,7 +449,8 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     public void responseLoginError(String msg) {
-        showToast(msg);
+//        showToast(msg);
+        tv_prompt.setText(msg);
     }
 
     @Override
