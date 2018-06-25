@@ -24,22 +24,22 @@ public class ApiEngine {
     private static final String ZT_API_HOST = "http://apia.jingrenzn.com:8080/";
 
     private static final String RX_API_HOST = "http://wpsnew.rxjy.com:9090"; //线上
-    // private static final String RX_API_HOST = "http://test.news.cs/"; //测试
+//    private static final String RX_API_HOST = "http://test.news.cs/"; //测试
 
-    //public static final String GC_API_HOST = "http://api.gc.cs/";//测试
+//       public static final String GC_API_HOST = "http://api.gc.cs/";//测试
     public static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
 
-    public static String BASEURL = "http://192.168.1.170:8099/";//测试
-   // public static String BASEURL = "http://wrrsnew.lm.rxjy.com:8181/"; //线上
+//        public static String BASEURL = "http://192.168.1.170:8099/";//测试
+    public static String BASEURL = "http://wrrsnew.lm.rxjy.com:8181/"; //线上
 
-    //  public static final String GC_API_HOST_CUSTOMER = "http://api.lm.cs/";//测试
+//        public static final String GC_API_HOST_CUSTOMER = "http://api.lm.cs/";//测试
     public static final String GC_API_HOST_CUSTOMER = "http://api.lm.rxjy.com:8034/";//线上
 
-    // public static final String GC_API_LM_HOST="http://wrapi.lm.cs/"; //测试
+//      public static final String GC_API_LM_HOST="http://wrapi.lm.cs/"; //测试
     public static final String GC_API_LM_HOST = "http://wrapi.lm.rxjy.com:8036/"; //线上
 
-    public static final String WANZHI = "http://wrxm.lm.cs";//测试
-    // public static final String WANZHI = "http://wrapi.lm.rxjy.com:8036/";//线上
+//      public static final String WANZHI="http://wrxm.lm.cs";//测试
+    public static final String WANZHI = "http://wrapi.lm.rxjy.com:8036/";//线上
     //    public static final String GC_API_HOST_CUSTOMER = "http://192.168.1.167:8034/";
 //    private static final String RD_API_HOST = "http://10.10.13.29:8089/";
 //    private static final String RD_API_HOST = "http://115.47.122.217:8080/";
@@ -61,6 +61,7 @@ public class ApiEngine {
     public static String LOGINURL = RS_API_HOST + "actionapi/AppLogin/Login";
     //认证接口
     public static String RENZHENGURL = BASEURL + "a/stration/pmUserinfoProjectMsg/GetUserInfoStrationByuid";
+
     //上传接口
     public static String SHANGCHUANURL = BASEURL + "a/pmUserinfo/add/addAuthentication ";
     //工人上传
@@ -94,6 +95,8 @@ public class ApiEngine {
     public static  String WORKERINFO=WORKER_LM_HOST+"/a/wokersApp/updatePmWokerInfo";
     //修改工人图片
     public static  String WORKERUPDATEPHOTO=WORKER_LM_HOST+"a/PmAttrInfo/addSinglePhoto";
+
+
     private Retrofit rxRetrofit;
     private Retrofit rsRetrofit;
     private Retrofit gcRetrofit;
