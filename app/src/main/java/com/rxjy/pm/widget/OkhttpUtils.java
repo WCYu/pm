@@ -87,11 +87,7 @@ public class OkhttpUtils {
                 .post(body)
                 .build();
       client.newCall(request).enqueue(Callback);
-//        if (response.isSuccessful()) {
-//            return response.body().string();
-//        } else {
-//            throw new IOException("Unexpected code " + response);
-//        }
+
     }
 
 }

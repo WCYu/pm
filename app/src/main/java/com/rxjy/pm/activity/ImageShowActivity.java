@@ -74,6 +74,7 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
     private String imgName;
     private StringBuffer urlBuffer;
     private StringBuffer imgBuffer;
+    private int type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,12 +100,13 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
         imgBuffer = new StringBuffer();
         tvText.setText("替换图片");
         String image = getIntent().getStringExtra("image");
+        Log.e("image",image);
         split = image.split(";");
 //        imglists = (ArrayList<UploadInfo.Upload.PhotoInfo>) intent.getSerializableExtra("images");
 //        Log.e("传过来的数据是：", imglists.toString());
         views = new ArrayList<>();
         initVpData(0, imglists);
-        int type = getIntent().getIntExtra("type", 0);
+        type = getIntent().getIntExtra("type", 0);
         if (type == 106) {
             String arrInfoid = getIntent().getStringExtra("arrInfoid");
 //            getIntent()
@@ -133,30 +135,16 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
             Glide.with(this).load(split[i]).into(piv);
             views.add(piv);
         }
-//            }
-//        }
-        uid = App.pmUserInfo.getUid() + "";
-//        if (imglist.size() > 0) {
-//            aid = imglist.get(0).getAttrId();
-//            mid = imglist.get(0).getModelId() + "";
-//            if(imglist.get(0).getCheckState() == 2 || imglist.get(0).getCheckState() == 0){
-//                tvText.setVisibility(View.VISIBLE);
-//            } else {
-//                tvText.setVisibility(View.INVISIBLE);
-//            }
-//        }
+        if (App.pmUserInfo == null) {
+
+        } else {
+            this.uid = App.pmUserInfo.getUid() + "";
+        }
+
+
         myPagerAdapter = new MyPagerAdapter(views);
         vpImgs.setAdapter(myPagerAdapter);
-//        if(nowitem>=0){
-//            vpImgs.setCurrentItem(nowitem);
-//            aid = imglist.get(nowitem).getAttrId();
-//            mid = imglist.get(nowitem).getModelId() + "";
-//            if(imglist.get(nowitem).getCheckState() == 2 || imglist.get(nowitem).getCheckState() == 0){
-//                tvText.setVisibility(View.VISIBLE);
-//            } else {
-//                tvText.setVisibility(View.INVISIBLE);
-//            }
-//        }
+
         vpImgs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -167,13 +155,6 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
             public void onPageSelected(int position) {
                 tvTitle.setText(title + "(" + (position + 1) + "/" + split.length + ")");
                 positions = position;
-//                if (imglist.get(position).getCheckState() == 2 || imglist.get(position).getCheckState() == 0) {//显示重新上传
-//                    tvText.setVisibility(View.VISIBLE);
-//                } else {
-//                    tvText.setVisibility(View.INVISIBLE);
-//                }
-//                aid = imglist.get(position).getAttrId();
-//                mid = imglist.get(position).getModelId() + "";
             }
 
             @Override
@@ -226,16 +207,6 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
                 break;
             case R.id.tv_text:
                 setImg(getIntent().getIntExtra("type", 0));
-//                //上传图片
-//                PictureSelector.create(this)
-//                        .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()
-//                        .imageSpanCount(3)// 每行显示个数 int
-//                        .maxSelectNum(1)// 最大图片选择数量 int
-//                        .minSelectNum(1)// 最小选择数量 int
-//                        .selectionMode(PictureConfig.MULTIPLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
-//                        .compress(true)// 是否压缩 true or fals
-//                        .isCamera(true)// 是否显示拍照按钮 true or false
-//                        .forResult(99);//结果回调onActivityResult code 
                 break;
         }
     }
@@ -247,6 +218,26 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
         if (resultCode == RESULT_OK) {
             List<LocalMedia> localMedias = PictureSelector.obtainMultipleResult(data);
             switch (requestCode) {
+                case 4:
+                    path = localMedias.get(0).getCutPath();
+                    setWorkerImgUrl(path, type + "");
+                    break;
+                case 8:
+                    path = localMedias.get(0).getCutPath();
+                    setWorkerImgUrl(path, type + "");
+                    break;
+                case 9:
+                    path = localMedias.get(0).getCutPath();
+                    setWorkerImgUrl(path, type + "");
+                    break;
+                case 36:
+                    path = localMedias.get(0).getCutPath();
+                    setWorkerImgUrl(path, type + "");
+                    break;
+                case 14:
+                    path = localMedias.get(0).getCutPath();
+                    setWorkerImgUrl(path, type + "");
+                    break;
                 case 101:
                     // 图片选择结果回调
                     path = localMedias.get(0).getCutPath();
@@ -350,12 +341,51 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
 
                             if (106 == getIntent().getIntExtra("type", 0)) {
                                 Log.e("tag_图片上传", "106入职资料");
-                                    urlBuffer.append(imgUrl + ";");
-                                    imgBuffer.append(imgName + ";");
+                                urlBuffer.append(imgUrl + ";");
+                                imgBuffer.append(imgName + ";");
                                 Log.e("tag_图片上传", urlBuffer.toString());
-                            }else {
+                            } else {
                                 setRuZhiImg(imgUrl, imgName, type);
                             }
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+    }
+
+    public void setWorkerImgUrl(String path, final String type) {
+        if (path != null) {
+            OkHttpClient okHttpClient = new OkHttpClient();
+            File file = new File(path);
+            MultipartBody.Builder builder = new MultipartBody.Builder();
+            builder.setType(MultipartBody.FORM);
+            builder.addFormDataPart("facefile", file.getName(), RequestBody.create(MediaType.parse("image/png"), file));
+            RequestBody body = builder.build();
+            Request request = new Request.Builder().url("http://img9.rxjy.com:9192/api/upload?action=uploadimage").addHeader("Referer", "iPanda.Android")
+                    .addHeader("User-Agent", "CNTV_APP_CLIENT_CBOX_MOBILE")
+                    .post(body).build();
+            okHttpClient.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("tag_图片上传", string);
+                    try {
+                        JSONObject jsonObject = new JSONObject(string);
+                        String state = jsonObject.getString("State");
+                        if (state.equals("SUCCESS")) {
+                            imgUrl = jsonObject.getString("BaseUrl");
+                            imgName = jsonObject.getString("FileName");
+                            Log.e("tag_图片上传", string);
+                            setWorkerRuZhiImg(imgUrl, imgName, type);
 
                         }
                     } catch (JSONException e) {
@@ -377,7 +407,7 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
             for (int i = 0; i < strings.length; i++) {
                 Log.e("tag_体检图片", strings[i]);
             }
-            map.put("attrServerUrl",urlBuffer.toString());
+            map.put("attrServerUrl", urlBuffer.toString());
             Log.e("tag_体检图片", urlBuffer.toString() + "");
             map.put("attrFileUrl", imgBuffer.toString());
             Log.e("tag_体检图片", imgBuffer.toString());
@@ -417,6 +447,37 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
         });
     }
 
+    private void setWorkerRuZhiImg(String imgUrl, String imgName, String type) {
+
+        String attrInfoid = getIntent().getStringExtra("attrInfoid");
+        JSONObject jsonObject = new JSONObject();
+        Log.e("tag666", type + "");
+        try {
+            jsonObject.put("uid", App.workerInfo.getWorkerId());
+            jsonObject.put("attrModelid", type);
+            jsonObject.put("attrServerUrl", imgUrl);
+            jsonObject.put("attrFileUrl", imgName);
+            jsonObject.put("attrInfoid", attrInfoid);
+            jsonObject.put("usertype", 5);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        OkhttpUtils.post(ApiEngine.WORKERUPDATEPHOTO, jsonObject.toString(), new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e("tag_入职图片", e.getMessage().toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("tag_入职图片", string);
+            }
+        });
+    }
+
     @Override
     public void responseupdateiconData(String url) {
         showToast("上传成功！");
@@ -443,50 +504,50 @@ public class ImageShowActivity extends BaseActivity<ImageShowPresenter> implemen
     }
 
 
-private class MyPagerAdapter extends PagerAdapter {
+    private class MyPagerAdapter extends PagerAdapter {
 
-    private ArrayList<View> viewslists;
+        private ArrayList<View> viewslists;
 
-    private int size;
+        private int size;
 
-    public MyPagerAdapter(ArrayList<View> viewslists) {
-        this.viewslists = viewslists;
-        size = viewslists == null ? 0 : viewslists.size();
+        public MyPagerAdapter(ArrayList<View> viewslists) {
+            this.viewslists = viewslists;
+            size = viewslists == null ? 0 : viewslists.size();
+        }
+
+        public void setViewslists(ArrayList<View> viewslists) {
+            this.viewslists = viewslists;
+            size = viewslists == null ? 0 : viewslists.size();
+        }
+
+        public void finishUpdate(View arg0) {
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            // TODO Auto-generated method stub
+            return POSITION_NONE;
+        }
+
+        @Override
+        public int getCount() {
+            return size;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView(viewslists.get(position % size));
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            container.addView(viewslists.get(position % size), 0);
+            return viewslists.get(position % size);
+        }
     }
-
-    public void setViewslists(ArrayList<View> viewslists) {
-        this.viewslists = viewslists;
-        size = viewslists == null ? 0 : viewslists.size();
-    }
-
-    public void finishUpdate(View arg0) {
-    }
-
-    @Override
-    public int getItemPosition(Object object) {
-        // TODO Auto-generated method stub
-        return POSITION_NONE;
-    }
-
-    @Override
-    public int getCount() {
-        return size;
-    }
-
-    @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(viewslists.get(position % size));
-    }
-
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(viewslists.get(position % size), 0);
-        return viewslists.get(position % size);
-    }
-}
 }

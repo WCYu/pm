@@ -42,7 +42,7 @@ public class MainPresenter extends MainContract.Presenter {
                     public void onNext(String s) {
                         Log.e("hjhvesonsssss",s);
                         VersionInfo info = JSONUtils.toObject(s, VersionInfo.class);
-                        if (info.getStatusCode() == 0) {
+                        if (info.getStatusCode() == 1) {
                             VersionInfo.Version data = info.getBody();
                             mView.responseVersionData(data);
                         } else {

@@ -44,6 +44,7 @@ public class LogoPresenter extends LogoContract.Presenter {
                     public void onError(Throwable e) {
                         Log.e(TAG, "获取用户信息失败 = " + e.toString());
                         onCompleted();
+                        mView.toLogin();
                     }
 
                     @Override
@@ -86,6 +87,7 @@ public class LogoPresenter extends LogoContract.Presenter {
                     public void onError(Throwable e) {
                         Log.e(TAG, "获取工程人员信息失败 = " + e.toString());
                         onCompleted();
+                        mView.toLogin();
                     }
 
                     @Override
@@ -121,6 +123,7 @@ public class LogoPresenter extends LogoContract.Presenter {
                     public void onError(Throwable e) {
                         Log.e(TAG, "获取工程人员信息失败 = " + e.toString());
                         onCompleted();
+                        mView.toLogin();
                     }
 
                     @Override

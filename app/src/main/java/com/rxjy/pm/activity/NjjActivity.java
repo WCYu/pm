@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -17,6 +18,7 @@ import com.rxjy.pm.R;
 import com.rxjy.pm.commons.App;
 import com.rxjy.pm.commons.Constants;
 import com.rxjy.pm.commons.base.BaseActivity;
+import com.rxjy.pm.commons.utils.AutoUtils;
 import com.rxjy.pm.commons.utils.CheckPermissionsUitl;
 import com.rxjy.pm.commons.utils.DownLoadApk;
 import com.rxjy.pm.commons.utils.PrefUtils;
@@ -68,9 +70,9 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
     @Bind(R.id.rl_tab_mine)
     RelativeLayout rlTabMine;
     //工人标记
-    private final int Worker_Sign=4;
+    private final int Worker_Sign = 4;
     //经理标记
-    private final int Manager_Sign=1;
+    private final int Manager_Sign = 1;
     private Fragment currentFragment;
 
     private int[] iconNormal = new int[]{
@@ -114,6 +116,7 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
             Manifest.permission.CAMERA,
             Manifest.permission.CALL_PHONE
     };
+    private AlertDialog dialog;
 
     @Override
     public int getLayout() {
@@ -128,7 +131,7 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
         showFragment(fragmentList.get(HOME_FRAGMENT), HOME_FRAGMENT);
         //权限检测
         CheckPermissionsUitl.checkPermissions(this, requestPermissions);
-        Log.e("hjhces","测试");
+        Log.e("hjhces", "测试");
         mPresenter.getVersionInfo(Integer.parseInt(App.getVersionCode()));
     }
 
@@ -147,12 +150,12 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
         if (findFragment == null)
             findFragment = new FindFragment();
 
-        if(PrefUtils.getIntFlag(this, Constants.FLAG)==Manager_Sign||PrefUtils.getIntFlag(this, Constants.FLAG)==20001||PrefUtils.getIntFlag(this, Constants.FLAG)==20002){
+        if (PrefUtils.getIntFlag(this, Constants.FLAG) == Manager_Sign || PrefUtils.getIntFlag(this, Constants.FLAG) == 20001 || PrefUtils.getIntFlag(this, Constants.FLAG) == 20002) {
             //初始化碎片
-            if(App.pmUserInfo.getUser_join_state()>0){
+            if (App.pmUserInfo.getUser_join_state() > 0) {
                 if (homeFragmentnew == null)
                     homeFragmentnew = new HomeFragmentNew();
-            }else{
+            } else {
                 if (homeFragment == null)
                     homeFragment = new HomeFragment();
             }
@@ -162,9 +165,9 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
                 mineFragment = new MineFragment();
 
             //将碎片添加到集合中
-            if(App.pmUserInfo.getUser_join_state()>0){
+            if (App.pmUserInfo.getUser_join_state() > 0) {
                 fragmentList.add(homeFragmentnew);
-            }else{
+            } else {
                 fragmentList.add(homeFragment);
             }
 
@@ -172,15 +175,15 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
             fragmentList.add(findFragment);
             fragmentList.add(mineFragment);
 
-        }else if(PrefUtils.getIntFlag(this, Constants.FLAG)==Worker_Sign){
-            if(workerHomeFragment==null){
-                workerHomeFragment=new WorkerHomeFragment();
+        } else if (PrefUtils.getIntFlag(this, Constants.FLAG) == Worker_Sign) {
+            if (workerHomeFragment == null) {
+                workerHomeFragment = new WorkerHomeFragment();
             }
-            if(workerMoreFragment==null){
-                workerMoreFragment=new WorkerMoreFragment();
+            if (workerMoreFragment == null) {
+                workerMoreFragment = new WorkerMoreFragment();
             }
-            if(workerMinFragment==null){
-                workerMinFragment=new WorkerMinFragment();
+            if (workerMinFragment == null) {
+                workerMinFragment = new WorkerMinFragment();
             }
             //将碎片添加到集合中
 
@@ -199,8 +202,8 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
         //将图标添加到集合中
         iconList.add(new IconInfo(ivTabHome, tvTabHome));
         iconList.add(new IconInfo(ivTabWallet, tvTabWallet));
-        iconList.add(new IconInfo(ivTabFind, tvTabFind ));
-        iconList.add(new IconInfo(ivTabMine, tvTabMine ));
+        iconList.add(new IconInfo(ivTabFind, tvTabFind));
+        iconList.add(new IconInfo(ivTabMine, tvTabMine));
     }
 
     /**
@@ -276,19 +279,43 @@ public class NjjActivity extends BaseActivity<MainPresenter> implements MainCont
     public void responseVersionData(final VersionInfo.Version data) {
 
         if (data.getVersionNo() > Integer.parseInt(App.getVersionCode())) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("版本升级");
+            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.newPassword);
             builder.setCancelable(false);// 设置点击屏幕Dialog不消失
-            builder.setMessage(data.getContent());
-            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            View inflate = getLayoutInflater().inflate(R.layout.upgrade_layout, null);
+            AutoUtils.setSize(this, false, 720, 1280);
+            AutoUtils.auto(inflate);
+            TextView confirmupgrade = (TextView) inflate.findViewById(R.id.confirm_upgrade);
+            TextView updatecontent = (TextView) inflate.findViewById(R.id.update_content);
+            TextView colse = (TextView) inflate.findViewById(R.id.close);
+            if (data.getForce() == 1) {
+                builder.setCancelable(false);// 设置点击屏幕Dialog不消失
+                colse.setVisibility(View.GONE);
+
+            } else {
+                builder.setCancelable(true);// 设置点击屏幕Dialog不消失
+            }
+            String content = data.getContent();
+            if (!TextUtils.isEmpty(content)) {
+                updatecontent.setText(content);
+            }
+            if (!TextUtils.isEmpty(content)) {
+                updatecontent.setText(content);
+            }
+            confirmupgrade.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
+                public void onClick(View v) {
                     DownLoadApk downLoadApk = new DownLoadApk(NjjActivity.this);
                     downLoadApk.downLoadApk(data);
                 }
             });
-            builder.setNegativeButton("取消", null);
-            AlertDialog dialog = builder.create();
+            colse.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            builder.setView(inflate);
+            dialog = builder.create();
             dialog.show();
         }
     }

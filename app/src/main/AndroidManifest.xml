@@ -181,6 +181,9 @@
         <activity android:name=".activity.my.RuZhiActivity" />
         <activity android:name=".activity.my.IsRuZhiActivity"></activity>
         <activity android:name=".activity.WebRecommendActivity"></activity>
+        <activity android:name=".activity.WorkerInfoActivity"></activity>
+        <activity android:name=".activity.WorkerInfoDataActivity"></activity>
+
     </application>
 
 </manifest>

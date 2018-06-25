@@ -34,6 +34,9 @@ public interface LogoContract {
         void responseWorkerLogin(WorkerInfo.BodyBean  data);
 
 
+        void toLogin();
+
+
     }
 
     interface Model extends BaseModel {

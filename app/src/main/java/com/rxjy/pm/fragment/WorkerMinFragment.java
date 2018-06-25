@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.rxjy.pm.R;
 import com.rxjy.pm.activity.SettingActivity;
+import com.rxjy.pm.activity.WorkerInfoActivity;
 import com.rxjy.pm.activity.WorkerPersondataActivity;
 import com.rxjy.pm.commons.App;
 import com.rxjy.pm.commons.base.BaseFragment;
@@ -52,6 +53,7 @@ public class WorkerMinFragment extends BaseFragment<WorkerMinPresenter> implemen
     RelativeLayout rlRewardPunishRecord;
     @Bind(R.id.rl_suggest)
     RelativeLayout rlSuggest;
+    private String imgurl;
 
     @Override
     protected int getFragmentLayout() {
@@ -106,9 +108,8 @@ public class WorkerMinFragment extends BaseFragment<WorkerMinPresenter> implemen
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_user_info:
-                startActivity(new Intent(getActivity(), WorkerPersondataActivity.class));
-//                startActivity(new Intent(getActivity(), UserInfoActivity.class));
-//                startActivity(new Intent(getActivity(), UploadInfoActivity.class));
+              //  startActivity(new Intent(getActivity(), WorkerPersondataActivity.class));
+                startActivity(new Intent(getActivity(), WorkerInfoActivity.class).putExtra("imgurl",imgurl));
                 break;
 //            case R.id.rl_help_center:
 //                Intent intent = new Intent(getActivity(), WebActivity.class);
@@ -151,6 +152,8 @@ public class WorkerMinFragment extends BaseFragment<WorkerMinPresenter> implemen
 
     @Override
     public void loadPhotoImage(String image) {
+
+        imgurl = image;
         RequestOptions options = new RequestOptions();
         options.placeholder(R.mipmap.head_portrait_icon);
         options.error(R.mipmap.head_portrait_icon);

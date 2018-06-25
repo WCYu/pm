@@ -170,8 +170,6 @@ public class UserActivity extends BaseActivity implements View.OnClickListener{
         Intent intent =null;
         switch (v.getId()){
             case R.id.rl_xiangmu:
-//                                startActivity(new Intent(this, UserInfoActivity.class));
-//                startActivity(new Intent(this, UploadInfoActivity.class));
                 intent = new Intent(this, XiangMuActivity.class);
                 break;
             case R.id.rl_gongren:

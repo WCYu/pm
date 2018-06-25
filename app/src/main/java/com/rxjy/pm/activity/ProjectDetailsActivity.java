@@ -268,8 +268,8 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
 
                 break;
             case 3:
-                kePhone.setVisibility(View.VISIBLE);
-                keDianhua.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
                 shejishiList.setVisibility(View.GONE);
                 shejishiPhone.setVisibility(View.GONE);
                 etBusinessaddress.setText(customerMobile);
@@ -288,8 +288,8 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
                 reBusinessaddress.setVisibility(View.VISIBLE);
                 keDianhuaText.setText(info.getBody().getCustomerMobile());
                 kePhoneText.setText(info.getBody().getCustomerMobile());
-                kePhone.setVisibility(View.VISIBLE);
-                keDianhua.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
                 break;
             case 5:
                 kePhone.setVisibility(View.VISIBLE);
@@ -312,8 +312,8 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
                 kePhoneText.setText(info.getBody().getCustomerName());
                 break;
             case 6:
-                kePhone.setVisibility(View.VISIBLE);
-                keDianhua.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
                 etBusinessaddress.setText(customerMobile);
                 reBusinessaddress.setVisibility(View.VISIBLE);
                 shejishiList.setVisibility(View.VISIBLE);
@@ -335,8 +335,8 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
                 kePhoneText.setText(info.getBody().getCustomerName());
                 break;
             case 7:
-                kePhone.setVisibility(View.VISIBLE);
-                keDianhua.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
                 Log.e("tagaa","tag");
                 keDianhuaText.setText(info.getBody().getCustomerMobile());
                 kePhoneText.setText(info.getBody().getCustomerName());
@@ -358,8 +358,8 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
                 reBusinessaddress.setVisibility(View.VISIBLE);
                 break;
             case 8:
-                kePhone.setVisibility(View.VISIBLE);
-                keDianhua.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
                 etBusinessaddress.setText(customerMobile);
                 reBusinessaddress.setVisibility(View.VISIBLE);
                 shejishiList.setVisibility(View.GONE);
@@ -369,8 +369,8 @@ public class ProjectDetailsActivity extends BaseActivity<ProjectDPersenter> impl
                 kePhoneText.setText(info.getBody().getCustomerName());
                 break;
             case 9:
-                kePhone.setVisibility(View.VISIBLE);
-                keDianhua.setVisibility(View.VISIBLE);
+                kePhone.setVisibility(View.GONE);
+                keDianhua.setVisibility(View.GONE);
                 etBusinessaddress.setText(customerMobile);
                 reBusinessaddress.setVisibility(View.VISIBLE);
                 shejishiList.setVisibility(View.GONE);

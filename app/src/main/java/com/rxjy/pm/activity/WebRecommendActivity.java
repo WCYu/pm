@@ -45,8 +45,7 @@ public class WebRecommendActivity extends BaseActivity {
                 return false;
             }
         });
-
-        url = "http://api.gc.rxjy.com:9101/app/h/recommendNXEAPP.html?CardNo" + App.cardNo;
+        url = "http://api.gc.rxjy.com:9101/app/h/recommendNXEAPP.html?CardNo=" + App.cardNo;
         wbRxsongs.loadUrl(url);
     }
 

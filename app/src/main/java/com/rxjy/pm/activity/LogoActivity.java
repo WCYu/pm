@@ -219,6 +219,12 @@ public class LogoActivity extends BaseActivity<LogoPresenter> implements LogoCon
         finish();
     }
 
+    @Override
+    public void toLogin() {
+        startActivity(new Intent(this,LoginActivity.class));
+        finish();
+    }
+
     private void newVersion() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         Uri uri = Uri.parse("market://details?id=" + "com.rxjy.pm");//app包名
