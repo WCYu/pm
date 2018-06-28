@@ -24,22 +24,22 @@ public class ApiEngine {
     private static final String ZT_API_HOST = "http://apia.jingrenzn.com:8080/";
 
     private static final String RX_API_HOST = "http://wpsnew.rxjy.com:9090"; //线上
-//    private static final String RX_API_HOST = "http://test.news.cs/"; //测试
+  //private static final String RX_API_HOST = "http://test.news.cs/"; //测试
 
-//       public static final String GC_API_HOST = "http://api.gc.cs/";//测试
-    public static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
+  // public static final String GC_API_HOST = "http://api.gc.cs/";//测试
+   public static final String GC_API_HOST = "http://api.gc.rxjy.com:/";//线上
 
-//        public static String BASEURL = "http://192.168.1.170:8099/";//测试
-    public static String BASEURL = "http://wrrsnew.lm.rxjy.com:8181/"; //线上
+//    public static String BASEURL = "http://192.168.1.170:8099/";//测试
+     public static String BASEURL = "http://wrrsnew.lm.rxjy.com:8181/"; //线上
 
-//        public static final String GC_API_HOST_CUSTOMER = "http://api.lm.cs/";//测试
-    public static final String GC_API_HOST_CUSTOMER = "http://api.lm.rxjy.com:8034/";//线上
+     //public static final String GC_API_HOST_CUSTOMER = "http://api.lm.cs/";//测试
+      public static final String GC_API_HOST_CUSTOMER = "http://api.lm.rxjy.com:8034/";//线上
 
-//      public static final String GC_API_LM_HOST="http://wrapi.lm.cs/"; //测试
-    public static final String GC_API_LM_HOST = "http://wrapi.lm.rxjy.com:8036/"; //线上
+  // public static final String GC_API_LM_HOST="http://wrapi.lm.cs/"; //测试
+      public static final String GC_API_LM_HOST = "http://wrapi.lm.rxjy.com:8036/"; //线上
 
-//      public static final String WANZHI="http://wrxm.lm.cs";//测试
-    public static final String WANZHI = "http://wrapi.lm.rxjy.com:8036/";//线上
+   //  public static final String WANZHI="http://wrxm.lm.cs";//测试
+     public static final String WANZHI = "http://wrapi.lm.rxjy.com:8036/";//线上
     //    public static final String GC_API_HOST_CUSTOMER = "http://192.168.1.167:8034/";
 //    private static final String RD_API_HOST = "http://10.10.13.29:8089/";
 //    private static final String RD_API_HOST = "http://115.47.122.217:8080/";
@@ -47,12 +47,11 @@ public class ApiEngine {
 //    private static final String RD_API_HOST = "http://apia.jingrenzn.com:8084/";
 //    private static final String RD_API_HOST = "http://apia.jingrenzn.com:8084";
 
-    public static final String WORKER_LM_HOST = "http://192.168.1.170:8580/cs/"; //测试
+//  public static final String WORKER_LM_HOST = "http://192.168.1.170:8580/cs/"; //测试
+     public static final String WORKER_LM_HOST = "http://grlm.lm.rxjy.com:8580/rx/"; //线上
 
-    //public static final String WORKER_LM_HOST = "http://grlm.lm.rxjy.com:8580/"; //线上
-
-    public static final String BANKCARD = "http://api.gc.cs/"; //测试
-    //public static final String BANKCARD = "http://api.gc.rx"; //线上
+   //public static final String BANKCARD = "http://api.gc.cs/"; //测试
+      public static final String BANKCARD = "http://api.gc.rx/"; //线上
     //判断登陆权限
     public static String LOGIN = RS_API_HOST + "actionapi/AppLogin/GetCheckUserInfo";
     //获取验证码
@@ -82,6 +81,7 @@ public class ApiEngine {
     //是否同意入职条件
     public static String ADDISRUZHIURL = BASEURL + "a/app/updateIntention";
      //获取工人资料
+    //a/wokersApp/findWorkerInfobyId
     //a/wokersApp/findWorkerInfobyId
     public static  String WORKERSINFORMATION=WORKER_LM_HOST+"a/wokersApp/findWorkerInfobyId";
     //获取工人的银行卡列表

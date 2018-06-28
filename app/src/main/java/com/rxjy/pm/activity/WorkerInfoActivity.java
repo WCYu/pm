@@ -96,7 +96,7 @@ public class WorkerInfoActivity extends BaseActivity {
     public void initData() {
         tvName.setText(App.workerInfo.getWorkerName() == null ? "昵称" :App.workerInfo.getWorkerName());
 
-        tvTrydate.setText(App.workerInfo.getWorkMonth()+"");
+        tvTrydate.setText(App.baseInfo.getBirthday());
         String imgurl = getIntent().getStringExtra("imgurl");
         tvSex.setText(App.workerInfo.getSex());
         tvPhone.setText(App.baseInfo.getPhone());

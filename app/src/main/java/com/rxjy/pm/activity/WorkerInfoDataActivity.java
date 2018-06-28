@@ -199,8 +199,7 @@ public class WorkerInfoDataActivity extends BaseActivity {
         imgXingxiang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast("点击了");
-                Log.e("tag_image", idPhoto);
+
                 startActivity(new Intent(WorkerInfoDataActivity.this, ImageShowActivity.class).putExtra("image", idPhoto).putExtra("status", idzhengjianzhao).putExtra("title", "证件照").putExtra("type", 36).putExtra("attrInfoid", idthere));
 
             }
@@ -208,7 +207,7 @@ public class WorkerInfoDataActivity extends BaseActivity {
         imgZhengjian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WorkerInfoDataActivity.this, ImageShowActivity.class).putExtra("image", idzizhi).putExtra("status", certificate).putExtra("title", "资质证书").putExtra("type", 14).putExtra("attrInfoid", idfour));
+                startActivity(new Intent(WorkerInfoDataActivity.this, ImageShowActivity.class).putExtra("image", certificate).putExtra("status", idzizhi).putExtra("title", "资质证书").putExtra("type", 14).putExtra("attrInfoid", idfour));
             }
         });
         imgShenfenZheng.setOnClickListener(new View.OnClickListener() {
@@ -325,6 +324,7 @@ public class WorkerInfoDataActivity extends BaseActivity {
                             showToast(workerTypeInfo.getStatusMsg());
                         }
 
+
                     }
                 });
             }
@@ -374,7 +374,7 @@ public class WorkerInfoDataActivity extends BaseActivity {
 
     public void getWorkerInfo() {
         Map<String, Object> map = new HashMap<>();
-
+              //workerId
         map.put("workerId", App.workerInfo.getWorkerId());
         OkhttpUtils.doPost(ApiEngine.WORKERSINFORMATION, map, new Callback() {
             @Override

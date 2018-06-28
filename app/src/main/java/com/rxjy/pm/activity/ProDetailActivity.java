@@ -13,6 +13,7 @@ import com.rxjy.pm.commons.Constants;
 import com.rxjy.pm.commons.base.BaseActivity;
 import com.rxjy.pm.commons.base.BasePresenter;
 import com.rxjy.pm.entity.ProjectInfo;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -50,6 +51,12 @@ public class ProDetailActivity extends BaseActivity {
     ImageView ivAdd;
     @Bind(R.id.iv_pro_detail_address_icon)
     ImageView ivProDetailAddressIcon;
+    @Bind(R.id.engineering)
+    AutoLinearLayout engineering;
+    @Bind(R.id.construction_Plans)
+    AutoLinearLayout constructionPlans;
+    @Bind(R.id.design_Sketch)
+    AutoLinearLayout designSketch;
 
     private ProjectInfo.Project proInfo;
 
@@ -81,7 +88,7 @@ public class ProDetailActivity extends BaseActivity {
 //                Log.e("id", cityID + "");
                 intent.putExtra(Constants.ORDERNO, orderNo);
                 intent.putExtra(Constants.CITYID, uid);
-                Log.e("cc",orderNo+"        "+uid);
+                Log.e("cc", orderNo + "        " + uid);
                 startActivity(intent);
             }
         });
@@ -103,7 +110,8 @@ public class ProDetailActivity extends BaseActivity {
     @OnClick({R.id.iv_back, R.id.rl_prepare,
             R.id.rl_routing, R.id.rl_disbursement,
             R.id.rl_mat, R.id.rl_camera,
-            R.id.rl_pro_money, R.id.rl_pro_management, R.id.rl_two})
+            R.id.rl_pro_money, R.id.rl_pro_management, R.id.rl_two,
+            R.id.engineering, R.id.construction_Plans, R.id.design_Sketch})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -158,6 +166,26 @@ public class ProDetailActivity extends BaseActivity {
                 intent.putExtra(Constants.ACTION_TO_ORDERS_LIST_PRO_ADDRESS, proInfo.getProAddr());
                 startActivity(intent);
                 break;
+            case R.id.engineering:
+                Intent intent1 = new Intent(this, EngineeringInfoActivity.class);
+                intent1.putExtra(Constants.ACTION_TO_PRO_DETAIL_PRO_INFO, proInfo);
+                intent1.putExtra(Constants.PICTUREMARK, true);
+                startActivity(intent1);
+                break;
+            case R.id.construction_Plans:
+                Intent intent2 = new Intent(this, PictureActivity.class);
+                intent2.putExtra(Constants.ACTION_TO_PRO_DETAIL_PRO_INFO, proInfo);
+                intent2.putExtra(Constants.PICTUREMARK, true);
+                intent2.putExtra(Constants.TITLE, "施工图");
+                startActivity(intent2);
+                break;
+            case R.id.design_Sketch:
+                Intent intent3 = new Intent(this, PictureActivity.class);
+                intent3.putExtra(Constants.ACTION_TO_PRO_DETAIL_PRO_INFO, proInfo);
+                intent3.putExtra(Constants.PICTUREMARK, false);
+                intent3.putExtra(Constants.TITLE, "效果图");
+                startActivity(intent3);
+                break;
         }
     }
 
@@ -167,5 +195,12 @@ public class ProDetailActivity extends BaseActivity {
 
     }
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 
 }

@@ -484,7 +484,6 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="20px"
                     android:background="@null"
-                    android:ems="10"
                     android:maxLength="18"
                     android:gravity="right"
                     android:hint="银行卡号"

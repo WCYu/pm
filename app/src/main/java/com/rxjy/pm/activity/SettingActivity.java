@@ -97,9 +97,6 @@ public class SettingActivity extends BaseActivity {
             case R.id.rl_reward_punish_record:
                 startActivity(new Intent(this, SuggestActivity.class));
                 break;
-            case R.id.rl_Orders:
-                startActivity(new Intent(this,OrdersActivity.class));
-                break;
         }
     }
 

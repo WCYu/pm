@@ -408,6 +408,7 @@
 
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/iv_viewse"
                 android:layout_width="25px"
                 android:layout_height="25px"
@@ -418,6 +419,7 @@
                 android:src="@mipmap/find_normal" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_views"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -146,9 +146,6 @@ public class PackageAgreementActivity extends BaseActivity<AgreementPresenter> i
 
     @Override
     public void getSuccessfulOperation() {
-//        Intent intent = new Intent(this, ProDetailActivity.class);
-//        intent.putExtra(Constants.ACTION_TO_PRO_DETAIL_PRO_INFO, proInfo);
-//        startActivity(intent);
         App.getApp().finishSingleActivity(ReceiptActivity.class);
         finish();
     }

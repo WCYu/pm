@@ -46,8 +46,8 @@ public class NewsDetailActivity extends BaseActivity {
     }
 
     private void initNewsDetail() {
-
-        String url = "http://news.rx/front/app_details.html?id=" + ID+"&cardNo="+ App.cardNo;
+         //
+        String url = "http://wpsnew.rxjy.com//front/app_details.html?id=" + ID+"&cardNo="+ App.cardNo;
         Log.e("url",url);
         wvNewsDetail.loadUrl(url);
 

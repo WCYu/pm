@@ -108,6 +108,7 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
 
     }
 
+
     @Override
     protected HomePresenter onCreatePresenter() {
         return new HomePresenter(this);
@@ -120,7 +121,6 @@ public class HomeFragment extends BaseFragment<HomePresenter> implements HomeCon
         proList.addAll(dataList);
         mAdapter.notifyDataSetChanged();
     }
-
     @Override
     public void responseProListDataError(String msg) {
         showToast(msg);

@@ -46,7 +46,7 @@ public class MainPresenter extends MainContract.Presenter {
                             VersionInfo.Version data = info.getBody();
                             mView.responseVersionData(data);
                         } else {
-                            mView.responseVersionDataError(info.getStatusMsg());
+                           // mView.responseVersionDataError(info.getStatusMsg());
                         }
                     }
                 });

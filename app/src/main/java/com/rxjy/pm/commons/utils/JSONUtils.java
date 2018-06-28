@@ -2,6 +2,8 @@ package com.rxjy.pm.commons.utils;
 
 import com.google.gson.Gson;
 
+import org.json.JSONException;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -16,8 +18,13 @@ public class JSONUtils
     }
 
     public static <T> T toObject(String json, Class<T> clazz) {
-        Gson gson = new Gson();
-        return gson.fromJson(json, clazz);
+        try {
+            Gson gson = new Gson();
+            return gson.fromJson(json, clazz);
+        }catch (Exception e){
+
+        }
+        return null;
     }
 
     @SuppressWarnings("unchecked")
